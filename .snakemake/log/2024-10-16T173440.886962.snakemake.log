@@ -1,0 +1,264 @@
+Config file config.yaml is extended by additional config specified via the command line.
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cluster nodes: 64
+Job stats:
+job                          count
+-------------------------  -------
+adaptor_trimming_pe              2
+add_chr_RNA_DNA                  2
+add_tags_bowtie2                 2
+all                              1
+annotate_rna                     1
+barcode_id                       2
+bowtie2_align                    2
+bowtie2_align_rna_repeats        2
+cat_ligation_efficiency          1
+combine_annotations_rna          1
+cutadapt                         2
+get_ligation_efficiency          2
+hisat2_align                     2
+merge_dna                        1
+merge_rna                        1
+merge_rrna                       1
+merge_samp                       1
+multiqc                          1
+rename_clusters                  1
+repeat_mask                      2
+split_rpm_dpm                    2
+splitfq_R1                       1
+splitfq_R2                       1
+tag_annotated_rna                1
+total                           35
+
+Select jobs to execute...
+
+[Wed Oct 16 17:34:42 2024]
+rule splitfq_R1:
+    input: /central/scratchio/mblanco/albert/sprite_test/DPM_first_subset_R1.fastq.gz
+    output: /central/scratchio/mblanco/albert/sprite_test_output/workup/splitfq/DPM_first_R1.part_000.fastq.gz, /central/scratchio/mblanco/albert/sprite_test_output/workup/splitfq/DPM_first_R1.part_001.fastq.gz
+    log: /central/scratchio/mblanco/albert/sprite_test_output/workup/logs/DPM_first.splitfq_r1.log
+    jobid: 2
+    reason: Missing output files: /central/scratchio/mblanco/albert/sprite_test_output/workup/splitfq/DPM_first_R1.part_000.fastq.gz, /central/scratchio/mblanco/albert/sprite_test_output/workup/splitfq/DPM_first_R1.part_001.fastq.gz
+    wildcards: sample=DPM_first
+    threads: 4
+    resources: mem_mb=1000, mem_mib=954, disk_mb=1000, disk_mib=954, tmpdir=<TBD>
+
+Submitted job 2 with external jobid 'Submitted batch job 44542947'.
+
+[Wed Oct 16 17:34:44 2024]
+rule splitfq_R2:
+    input: /central/scratchio/mblanco/albert/sprite_test/DPM_first_subset_R2.fastq.gz
+    output: /central/scratchio/mblanco/albert/sprite_test_output/workup/splitfq/DPM_first_R2.part_000.fastq.gz, /central/scratchio/mblanco/albert/sprite_test_output/workup/splitfq/DPM_first_R2.part_001.fastq.gz
+    log: /central/scratchio/mblanco/albert/sprite_test_output/workup/logs/DPM_first.splitfq_r2.log
+    jobid: 3
+    reason: Missing output files: /central/scratchio/mblanco/albert/sprite_test_output/workup/splitfq/DPM_first_R2.part_001.fastq.gz, /central/scratchio/mblanco/albert/sprite_test_output/workup/splitfq/DPM_first_R2.part_000.fastq.gz
+    wildcards: sample=DPM_first
+    threads: 4
+    resources: mem_mb=1000, mem_mib=954, disk_mb=1000, disk_mib=954, tmpdir=<TBD>
+
+Submitted job 3 with external jobid 'Submitted batch job 44542951'.
+[Wed Oct 16 17:35:15 2024]
+Finished job 2.
+1 of 35 steps (3%) done
+[Wed Oct 16 17:35:15 2024]
+Finished job 3.
+2 of 35 steps (6%) done
+Select jobs to execute...
+
+[Wed Oct 16 17:35:15 2024]
+rule adaptor_trimming_pe:
+    input: /central/scratchio/mblanco/albert/sprite_test_output/workup/splitfq/DPM_first_R1.part_001.fastq.gz, /central/scratchio/mblanco/albert/sprite_test_output/workup/splitfq/DPM_first_R2.part_001.fastq.gz
+    output: /central/scratchio/mblanco/albert/sprite_test_output/workup/trimmed/DPM_first_R1.part_001_val_1.fq.gz, /central/scratchio/mblanco/albert/sprite_test_output/workup/trimmed/DPM_first_R1.part_001.fastq.gz_trimming_report.txt, /central/scratchio/mblanco/albert/sprite_test_output/workup/trimmed/DPM_first_R2.part_001_val_2.fq.gz, /central/scratchio/mblanco/albert/sprite_test_output/workup/trimmed/DPM_first_R2.part_001.fastq.gz_trimming_report.txt
+    log: /central/scratchio/mblanco/albert/sprite_test_output/workup/logs/DPM_first.001.trim_galore.log
+    jobid: 4
+    reason: Missing output files: /central/scratchio/mblanco/albert/sprite_test_output/workup/trimmed/DPM_first_R2.part_001_val_2.fq.gz, /central/scratchio/mblanco/albert/sprite_test_output/workup/trimmed/DPM_first_R2.part_001.fastq.gz_trimming_report.txt, /central/scratchio/mblanco/albert/sprite_test_output/workup/trimmed/DPM_first_R1.part_001_val_1.fq.gz, /central/scratchio/mblanco/albert/sprite_test_output/workup/trimmed/DPM_first_R1.part_001.fastq.gz_trimming_report.txt; Input files updated by another job: /central/scratchio/mblanco/albert/sprite_test_output/workup/splitfq/DPM_first_R1.part_001.fastq.gz, /central/scratchio/mblanco/albert/sprite_test_output/workup/splitfq/DPM_first_R2.part_001.fastq.gz
+    wildcards: sample=DPM_first, splitid=001
+    threads: 10
+    resources: mem_mb=1000, mem_mib=954, disk_mb=1000, disk_mib=954, tmpdir=<TBD>
+
+Submitted job 4 with external jobid 'Submitted batch job 44542972'.
+
+[Wed Oct 16 17:35:16 2024]
+rule adaptor_trimming_pe:
+    input: /central/scratchio/mblanco/albert/sprite_test_output/workup/splitfq/DPM_first_R1.part_000.fastq.gz, /central/scratchio/mblanco/albert/sprite_test_output/workup/splitfq/DPM_first_R2.part_000.fastq.gz
+    output: /central/scratchio/mblanco/albert/sprite_test_output/workup/trimmed/DPM_first_R1.part_000_val_1.fq.gz, /central/scratchio/mblanco/albert/sprite_test_output/workup/trimmed/DPM_first_R1.part_000.fastq.gz_trimming_report.txt, /central/scratchio/mblanco/albert/sprite_test_output/workup/trimmed/DPM_first_R2.part_000_val_2.fq.gz, /central/scratchio/mblanco/albert/sprite_test_output/workup/trimmed/DPM_first_R2.part_000.fastq.gz_trimming_report.txt
+    log: /central/scratchio/mblanco/albert/sprite_test_output/workup/logs/DPM_first.000.trim_galore.log
+    jobid: 1
+    reason: Missing output files: /central/scratchio/mblanco/albert/sprite_test_output/workup/trimmed/DPM_first_R2.part_000_val_2.fq.gz, /central/scratchio/mblanco/albert/sprite_test_output/workup/trimmed/DPM_first_R2.part_000.fastq.gz_trimming_report.txt, /central/scratchio/mblanco/albert/sprite_test_output/workup/trimmed/DPM_first_R1.part_000.fastq.gz_trimming_report.txt, /central/scratchio/mblanco/albert/sprite_test_output/workup/trimmed/DPM_first_R1.part_000_val_1.fq.gz; Input files updated by another job: /central/scratchio/mblanco/albert/sprite_test_output/workup/splitfq/DPM_first_R1.part_000.fastq.gz, /central/scratchio/mblanco/albert/sprite_test_output/workup/splitfq/DPM_first_R2.part_000.fastq.gz
+    wildcards: sample=DPM_first, splitid=000
+    threads: 10
+    resources: mem_mb=1000, mem_mib=954, disk_mb=1000, disk_mib=954, tmpdir=<TBD>
+
+Submitted job 1 with external jobid 'Submitted batch job 44542973'.
+[Wed Oct 16 17:35:55 2024]
+Finished job 4.
+3 of 35 steps (9%) done
+Select jobs to execute...
+
+[Wed Oct 16 17:35:55 2024]
+rule cutadapt:
+    input: /central/scratchio/mblanco/albert/sprite_test_output/workup/trimmed/DPM_first_R1.part_001_val_1.fq.gz, /central/scratchio/mblanco/albert/sprite_test_output/workup/trimmed/DPM_first_R2.part_001_val_2.fq.gz
+    output: /central/scratchio/mblanco/albert/sprite_test_output/workup/trimmed/DPM_first_R1.part_001_val_1_RDtrim.fq.gz, /central/scratchio/mblanco/albert/sprite_test_output/workup/trimmed/DPM_first_R2.part_001_val_2_RDtrim.fq.gz, /central/scratchio/mblanco/albert/sprite_test_output/workup/trimmed/DPM_first.part_001.RDtrim.qc.txt
+    log: /central/scratchio/mblanco/albert/sprite_test_output/workup/logs/DPM_first.001.cutadapt.log
+    jobid: 6
+    reason: Missing output files: /central/scratchio/mblanco/albert/sprite_test_output/workup/trimmed/DPM_first_R2.part_001_val_2_RDtrim.fq.gz, /central/scratchio/mblanco/albert/sprite_test_output/workup/trimmed/DPM_first_R1.part_001_val_1_RDtrim.fq.gz; Input files updated by another job: /central/scratchio/mblanco/albert/sprite_test_output/workup/trimmed/DPM_first_R1.part_001_val_1.fq.gz, /central/scratchio/mblanco/albert/sprite_test_output/workup/trimmed/DPM_first_R2.part_001_val_2.fq.gz
+    wildcards: sample=DPM_first, splitid=001
+    threads: 10
+    resources: mem_mb=1000, mem_mib=954, disk_mb=1000, disk_mib=954, tmpdir=<TBD>
+
+Submitted job 6 with external jobid 'Submitted batch job 44542987'.
+[Wed Oct 16 17:35:56 2024]
+Finished job 1.
+4 of 35 steps (11%) done
+Select jobs to execute...
+
+[Wed Oct 16 17:35:56 2024]
+rule cutadapt:
+    input: /central/scratchio/mblanco/albert/sprite_test_output/workup/trimmed/DPM_first_R1.part_000_val_1.fq.gz, /central/scratchio/mblanco/albert/sprite_test_output/workup/trimmed/DPM_first_R2.part_000_val_2.fq.gz
+    output: /central/scratchio/mblanco/albert/sprite_test_output/workup/trimmed/DPM_first_R1.part_000_val_1_RDtrim.fq.gz, /central/scratchio/mblanco/albert/sprite_test_output/workup/trimmed/DPM_first_R2.part_000_val_2_RDtrim.fq.gz, /central/scratchio/mblanco/albert/sprite_test_output/workup/trimmed/DPM_first.part_000.RDtrim.qc.txt
+    log: /central/scratchio/mblanco/albert/sprite_test_output/workup/logs/DPM_first.000.cutadapt.log
+    jobid: 5
+    reason: Missing output files: /central/scratchio/mblanco/albert/sprite_test_output/workup/trimmed/DPM_first_R1.part_000_val_1_RDtrim.fq.gz, /central/scratchio/mblanco/albert/sprite_test_output/workup/trimmed/DPM_first_R2.part_000_val_2_RDtrim.fq.gz; Input files updated by another job: /central/scratchio/mblanco/albert/sprite_test_output/workup/trimmed/DPM_first_R2.part_000_val_2.fq.gz, /central/scratchio/mblanco/albert/sprite_test_output/workup/trimmed/DPM_first_R1.part_000_val_1.fq.gz
+    wildcards: sample=DPM_first, splitid=000
+    threads: 10
+    resources: mem_mb=1000, mem_mib=954, disk_mb=1000, disk_mib=954, tmpdir=<TBD>
+
+Submitted job 5 with external jobid 'Submitted batch job 44542988'.
+[Wed Oct 16 17:36:16 2024]
+Finished job 6.
+5 of 35 steps (14%) done
+Select jobs to execute...
+
+[Wed Oct 16 17:36:16 2024]
+rule barcode_id:
+    input: /central/scratchio/mblanco/albert/sprite_test_output/workup/trimmed/DPM_first_R1.part_001_val_1_RDtrim.fq.gz, /central/scratchio/mblanco/albert/sprite_test_output/workup/trimmed/DPM_first_R2.part_001_val_2_RDtrim.fq.gz
+    output: /central/scratchio/mblanco/albert/sprite_test_output/workup/fastqs/DPM_first_R1.part_001.barcoded.fastq.gz, /central/scratchio/mblanco/albert/sprite_test_output/workup/fastqs/DPM_first_R2.part_001.barcoded.fastq.gz
+    log: /central/scratchio/mblanco/albert/sprite_test_output/workup/logs/DPM_first.001.bID.log
+    jobid: 8
+    reason: Missing output files: /central/scratchio/mblanco/albert/sprite_test_output/workup/fastqs/DPM_first_R1.part_001.barcoded.fastq.gz, /central/scratchio/mblanco/albert/sprite_test_output/workup/fastqs/DPM_first_R2.part_001.barcoded.fastq.gz; Input files updated by another job: /central/scratchio/mblanco/albert/sprite_test_output/workup/trimmed/DPM_first_R2.part_001_val_2_RDtrim.fq.gz, /central/scratchio/mblanco/albert/sprite_test_output/workup/trimmed/DPM_first_R1.part_001_val_1_RDtrim.fq.gz
+    wildcards: sample=DPM_first, splitid=001
+    resources: mem_mb=1000, mem_mib=954, disk_mb=1000, disk_mib=954, tmpdir=<TBD>
+
+Submitted job 8 with external jobid 'Submitted batch job 44543000'.
+[Wed Oct 16 17:36:16 2024]
+Finished job 5.
+6 of 35 steps (17%) done
+Select jobs to execute...
+
+[Wed Oct 16 17:36:16 2024]
+rule barcode_id:
+    input: /central/scratchio/mblanco/albert/sprite_test_output/workup/trimmed/DPM_first_R1.part_000_val_1_RDtrim.fq.gz, /central/scratchio/mblanco/albert/sprite_test_output/workup/trimmed/DPM_first_R2.part_000_val_2_RDtrim.fq.gz
+    output: /central/scratchio/mblanco/albert/sprite_test_output/workup/fastqs/DPM_first_R1.part_000.barcoded.fastq.gz, /central/scratchio/mblanco/albert/sprite_test_output/workup/fastqs/DPM_first_R2.part_000.barcoded.fastq.gz
+    log: /central/scratchio/mblanco/albert/sprite_test_output/workup/logs/DPM_first.000.bID.log
+    jobid: 7
+    reason: Missing output files: /central/scratchio/mblanco/albert/sprite_test_output/workup/fastqs/DPM_first_R1.part_000.barcoded.fastq.gz, /central/scratchio/mblanco/albert/sprite_test_output/workup/fastqs/DPM_first_R2.part_000.barcoded.fastq.gz; Input files updated by another job: /central/scratchio/mblanco/albert/sprite_test_output/workup/trimmed/DPM_first_R2.part_000_val_2_RDtrim.fq.gz, /central/scratchio/mblanco/albert/sprite_test_output/workup/trimmed/DPM_first_R1.part_000_val_1_RDtrim.fq.gz
+    wildcards: sample=DPM_first, splitid=000
+    resources: mem_mb=1000, mem_mib=954, disk_mb=1000, disk_mib=954, tmpdir=<TBD>
+
+Submitted job 7 with external jobid 'Submitted batch job 44543001'.
+[Wed Oct 16 17:36:46 2024]
+Finished job 8.
+7 of 35 steps (20%) done
+Select jobs to execute...
+
+[Wed Oct 16 17:36:46 2024]
+rule split_rpm_dpm:
+    input: /central/scratchio/mblanco/albert/sprite_test_output/workup/fastqs/DPM_first_R1.part_001.barcoded.fastq.gz
+    output: /central/scratchio/mblanco/albert/sprite_test_output/workup/fastqs/DPM_first_R1.part_001.barcoded_dpm.fastq.gz, /central/scratchio/mblanco/albert/sprite_test_output/workup/fastqs/DPM_first_R1.part_001.barcoded_rpm.fastq.gz, /central/scratchio/mblanco/albert/sprite_test_output/workup/fastqs/DPM_first_R1.part_001.barcoded_other.fastq.gz, /central/scratchio/mblanco/albert/sprite_test_output/workup/fastqs/DPM_first_R1.part_001.barcoded_short.fastq.gz
+    log: /central/scratchio/mblanco/albert/sprite_test_output/workup/logs/DPM_first.001.RPM_DPM.log
+    jobid: 13
+    reason: Missing output files: /central/scratchio/mblanco/albert/sprite_test_output/workup/fastqs/DPM_first_R1.part_001.barcoded_rpm.fastq.gz, /central/scratchio/mblanco/albert/sprite_test_output/workup/fastqs/DPM_first_R1.part_001.barcoded_dpm.fastq.gz; Input files updated by another job: /central/scratchio/mblanco/albert/sprite_test_output/workup/fastqs/DPM_first_R1.part_001.barcoded.fastq.gz
+    wildcards: sample=DPM_first, splitid=001
+    resources: mem_mb=1000, mem_mib=954, disk_mb=1000, disk_mib=954, tmpdir=<TBD>
+
+Submitted job 13 with external jobid 'Submitted batch job 44543013'.
+
+[Wed Oct 16 17:36:46 2024]
+rule get_ligation_efficiency:
+    input: /central/scratchio/mblanco/albert/sprite_test_output/workup/fastqs/DPM_first_R1.part_001.barcoded.fastq.gz
+    output: /central/scratchio/mblanco/albert/sprite_test_output/workup/DPM_first.part_001.ligation_efficiency.txt
+    jobid: 11
+    reason: Missing output files: /central/scratchio/mblanco/albert/sprite_test_output/workup/DPM_first.part_001.ligation_efficiency.txt; Input files updated by another job: /central/scratchio/mblanco/albert/sprite_test_output/workup/fastqs/DPM_first_R1.part_001.barcoded.fastq.gz
+    wildcards: sample=DPM_first, splitid=001
+    resources: mem_mb=1000, mem_mib=954, disk_mb=1000, disk_mib=954, tmpdir=<TBD>
+
+Submitted job 11 with external jobid 'Submitted batch job 44543014'.
+[Wed Oct 16 17:36:56 2024]
+Finished job 7.
+8 of 35 steps (23%) done
+Select jobs to execute...
+
+[Wed Oct 16 17:36:56 2024]
+rule get_ligation_efficiency:
+    input: /central/scratchio/mblanco/albert/sprite_test_output/workup/fastqs/DPM_first_R1.part_000.barcoded.fastq.gz
+    output: /central/scratchio/mblanco/albert/sprite_test_output/workup/DPM_first.part_000.ligation_efficiency.txt
+    jobid: 10
+    reason: Missing output files: /central/scratchio/mblanco/albert/sprite_test_output/workup/DPM_first.part_000.ligation_efficiency.txt; Input files updated by another job: /central/scratchio/mblanco/albert/sprite_test_output/workup/fastqs/DPM_first_R1.part_000.barcoded.fastq.gz
+    wildcards: sample=DPM_first, splitid=000
+    resources: mem_mb=1000, mem_mib=954, disk_mb=1000, disk_mib=954, tmpdir=<TBD>
+
+Submitted job 10 with external jobid 'Submitted batch job 44543019'.
+
+[Wed Oct 16 17:36:56 2024]
+rule split_rpm_dpm:
+    input: /central/scratchio/mblanco/albert/sprite_test_output/workup/fastqs/DPM_first_R1.part_000.barcoded.fastq.gz
+    output: /central/scratchio/mblanco/albert/sprite_test_output/workup/fastqs/DPM_first_R1.part_000.barcoded_dpm.fastq.gz, /central/scratchio/mblanco/albert/sprite_test_output/workup/fastqs/DPM_first_R1.part_000.barcoded_rpm.fastq.gz, /central/scratchio/mblanco/albert/sprite_test_output/workup/fastqs/DPM_first_R1.part_000.barcoded_other.fastq.gz, /central/scratchio/mblanco/albert/sprite_test_output/workup/fastqs/DPM_first_R1.part_000.barcoded_short.fastq.gz
+    log: /central/scratchio/mblanco/albert/sprite_test_output/workup/logs/DPM_first.000.RPM_DPM.log
+    jobid: 12
+    reason: Missing output files: /central/scratchio/mblanco/albert/sprite_test_output/workup/fastqs/DPM_first_R1.part_000.barcoded_dpm.fastq.gz, /central/scratchio/mblanco/albert/sprite_test_output/workup/fastqs/DPM_first_R1.part_000.barcoded_rpm.fastq.gz; Input files updated by another job: /central/scratchio/mblanco/albert/sprite_test_output/workup/fastqs/DPM_first_R1.part_000.barcoded.fastq.gz
+    wildcards: sample=DPM_first, splitid=000
+    resources: mem_mb=1000, mem_mib=954, disk_mb=1000, disk_mib=954, tmpdir=<TBD>
+
+Submitted job 12 with external jobid 'Submitted batch job 44543020'.
+[Wed Oct 16 17:37:16 2024]
+Error in rule split_rpm_dpm:
+    jobid: 13
+    input: /central/scratchio/mblanco/albert/sprite_test_output/workup/fastqs/DPM_first_R1.part_001.barcoded.fastq.gz
+    output: /central/scratchio/mblanco/albert/sprite_test_output/workup/fastqs/DPM_first_R1.part_001.barcoded_dpm.fastq.gz, /central/scratchio/mblanco/albert/sprite_test_output/workup/fastqs/DPM_first_R1.part_001.barcoded_rpm.fastq.gz, /central/scratchio/mblanco/albert/sprite_test_output/workup/fastqs/DPM_first_R1.part_001.barcoded_other.fastq.gz, /central/scratchio/mblanco/albert/sprite_test_output/workup/fastqs/DPM_first_R1.part_001.barcoded_short.fastq.gz
+    log: /central/scratchio/mblanco/albert/sprite_test_output/workup/logs/DPM_first.001.RPM_DPM.log (check log file(s) for error details)
+    shell:
+        python scripts/python/split_dpm_rpm_fq_barcodes.py --r1 /central/scratchio/mblanco/albert/sprite_test_output/workup/fastqs/DPM_first_R1.part_001.barcoded.fastq.gz --format format.txt &> /central/scratchio/mblanco/albert/sprite_test_output/workup/logs/DPM_first.001.RPM_DPM.log
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+    cluster_jobid: Submitted batch job 44543013
+
+Error executing rule split_rpm_dpm on cluster (jobid: 13, external: Submitted batch job 44543013, jobscript: /central/home/zyang4/RDSPRITE_v4/.snakemake/tmp.itklotjn/snakejob.split_rpm_dpm.13.sh). For error details see the cluster log and the log files of the involved rule(s).
+[Wed Oct 16 17:37:16 2024]
+Error in rule get_ligation_efficiency:
+    jobid: 11
+    input: /central/scratchio/mblanco/albert/sprite_test_output/workup/fastqs/DPM_first_R1.part_001.barcoded.fastq.gz
+    output: /central/scratchio/mblanco/albert/sprite_test_output/workup/DPM_first.part_001.ligation_efficiency.txt
+    conda-env: sprite
+    shell:
+        python scripts/python/get_ligation_efficiency.py /central/scratchio/mblanco/albert/sprite_test_output/workup/fastqs/DPM_first_R1.part_001.barcoded.fastq.gz > /central/scratchio/mblanco/albert/sprite_test_output/workup/DPM_first.part_001.ligation_efficiency.txt
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+    cluster_jobid: Submitted batch job 44543014
+
+Error executing rule get_ligation_efficiency on cluster (jobid: 11, external: Submitted batch job 44543014, jobscript: /central/home/zyang4/RDSPRITE_v4/.snakemake/tmp.itklotjn/snakejob.get_ligation_efficiency.11.sh). For error details see the cluster log and the log files of the involved rule(s).
+[Wed Oct 16 17:37:16 2024]
+Error in rule get_ligation_efficiency:
+    jobid: 10
+    input: /central/scratchio/mblanco/albert/sprite_test_output/workup/fastqs/DPM_first_R1.part_000.barcoded.fastq.gz
+    output: /central/scratchio/mblanco/albert/sprite_test_output/workup/DPM_first.part_000.ligation_efficiency.txt
+    conda-env: sprite
+    shell:
+        python scripts/python/get_ligation_efficiency.py /central/scratchio/mblanco/albert/sprite_test_output/workup/fastqs/DPM_first_R1.part_000.barcoded.fastq.gz > /central/scratchio/mblanco/albert/sprite_test_output/workup/DPM_first.part_000.ligation_efficiency.txt
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+    cluster_jobid: Submitted batch job 44543019
+
+Error executing rule get_ligation_efficiency on cluster (jobid: 10, external: Submitted batch job 44543019, jobscript: /central/home/zyang4/RDSPRITE_v4/.snakemake/tmp.itklotjn/snakejob.get_ligation_efficiency.10.sh). For error details see the cluster log and the log files of the involved rule(s).
+[Wed Oct 16 17:37:16 2024]
+Error in rule split_rpm_dpm:
+    jobid: 12
+    input: /central/scratchio/mblanco/albert/sprite_test_output/workup/fastqs/DPM_first_R1.part_000.barcoded.fastq.gz
+    output: /central/scratchio/mblanco/albert/sprite_test_output/workup/fastqs/DPM_first_R1.part_000.barcoded_dpm.fastq.gz, /central/scratchio/mblanco/albert/sprite_test_output/workup/fastqs/DPM_first_R1.part_000.barcoded_rpm.fastq.gz, /central/scratchio/mblanco/albert/sprite_test_output/workup/fastqs/DPM_first_R1.part_000.barcoded_other.fastq.gz, /central/scratchio/mblanco/albert/sprite_test_output/workup/fastqs/DPM_first_R1.part_000.barcoded_short.fastq.gz
+    log: /central/scratchio/mblanco/albert/sprite_test_output/workup/logs/DPM_first.000.RPM_DPM.log (check log file(s) for error details)
+    shell:
+        python scripts/python/split_dpm_rpm_fq_barcodes.py --r1 /central/scratchio/mblanco/albert/sprite_test_output/workup/fastqs/DPM_first_R1.part_000.barcoded.fastq.gz --format format.txt &> /central/scratchio/mblanco/albert/sprite_test_output/workup/logs/DPM_first.000.RPM_DPM.log
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+    cluster_jobid: Submitted batch job 44543020
+
+Error executing rule split_rpm_dpm on cluster (jobid: 12, external: Submitted batch job 44543020, jobscript: /central/home/zyang4/RDSPRITE_v4/.snakemake/tmp.itklotjn/snakejob.split_rpm_dpm.12.sh). For error details see the cluster log and the log files of the involved rule(s).
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: .snakemake/log/2024-10-16T173440.886962.snakemake.log

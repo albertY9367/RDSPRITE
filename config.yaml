@@ -1,0 +1,57 @@
+#email to which errors will be sent
+email: "ayang@lncrna.caltech.edu"
+#Location of the config file for barcodeIdentification
+bID: "config.txt"
+#Location of the format file for barcode filtering
+format: "format.txt"
+#Location of the samples json file produced with the fastq2json.py script 
+samples: "samples.json"
+#Output directory (include trailing '/') 
+output_dir: "/central/scratchio/mblanco/albert/sprite_test_sample_old/"
+#Currently "mm10" and "hg38" available
+assembly: "mm10"
+#Number of barcodes used (this includes DPM/RPM for RNA-DNA)
+num_tags: 2
+#File for cutadapt
+cutadapt: "dpm96.fasta"
+#Number of splits
+num_chunks: 2
+#Conda environment
+conda_env: "chipdip"
+#Filter threshold
+filter_binsize: 1000
+filter_threshold: 0.05
+#Text file for renamaing annotations
+anno_rename:
+    mm10: "/groups/guttman/SPRITE_pipelines/genomes/mm10/mm10_sprite_annotation_renaming.txt"
+    hg38: ""
+#Protein coding and lncRNA intron-exon annotation
+exon_intron_saf:
+    mm10: "/groups/guttman/SPRITE_pipelines/genomes/mm10/gencode.vM25.protein_coding_lncRNA.renamed.saf"
+    hg38: ""
+#Merged annotation of rmsk and genome aligned repeats
+anno_repeats_saf:
+    mm10: "/groups/guttman/SPRITE_pipelines/genomes/mm10/gencode.vM25.repeats.rmsk.merged.deduplicated.renamed.saf"
+    hg38: ""
+#antisense annotation
+antisense_saf:
+    mm10: "/groups/guttman/SPRITE_pipelines/genomes/mm10/gencode.vM25.antisense.renamed.saf"
+    hg38: ""
+#Repeat mask used for filtering DNA contacts
+mask:
+    mm10: "/groups/guttman/SPRITE_pipelines/genomes/mm10/mm10_blacklist_rmsk.milliDivLessThan140.bed"
+    hg38: ""
+#Bowtie2 Indexes
+bowtie2_index:
+    mm10: "/groups/guttman/SPRITE_pipelines/genomes/mm10/bowtie2/GRCm38.p6"
+    hg38: ""
+bowtie2_repeat_index:
+    mm10: "/groups/guttman/SPRITE_pipelines/genomes/repeats/mm_repetitive_sequences_20210606"
+    hg38: ""
+#Hisat2 Indexes
+hisat2_index:
+    mm10: "/groups/guttman/SPRITE_pipelines/genomes/mm10/hisat2/GRCm38.p6"
+    hg38: ""
+hisat2_splice_sites:
+    mm10: "/groups/guttman/SPRITE_pipelines/genomes/mm10/hisat2/Mus_musculus.GRCm38.95.ss"
+    hg38: ""

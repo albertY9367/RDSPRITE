@@ -1,0 +1,28 @@
+Config file config.yaml is extended by additional config specified via the command line.
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cluster nodes: 64
+Job stats:
+job                     count
+--------------------  -------
+all                         1
+cat_outlier_regions         1
+custom_mask                 1
+make_merged_clusters        1
+rename_clusters             1
+total                       5
+
+Select jobs to execute...
+
+[Wed Oct 23 14:30:48 2024]
+rule cat_outlier_regions:
+    input: /central/scratchio/mblanco/albert/sprite_test_output/workup/DPM_first.outlier_regions_thresh.bed
+    output: /central/scratchio/mblanco/albert/sprite_test_output/workup/custom_dna_mask.bed
+    log: /central/scratchio/mblanco/albert/sprite_test_output/workup/logs/cat_outlier_regions.log
+    jobid: 36
+    reason: Missing output files: /central/scratchio/mblanco/albert/sprite_test_output/workup/custom_dna_mask.bed
+    resources: mem_mb=1000, mem_mib=954, disk_mb=1000, disk_mib=954, tmpdir=<TBD>
+
+RuleException in rule cat_outlier_regions in file /central/home/zyang4/RDSPRITE_v4/Snakefilefilter_keepRPMDPM.smk, line 750:
+AttributeError: 'Wildcards' object has no attribute 'sample', when formatting the following:
+workup/logs/cluster/{rule}.{wildcards.sample}.out

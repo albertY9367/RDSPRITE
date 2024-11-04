@@ -1,0 +1,63 @@
+Config file config.yaml is extended by additional config specified via the command line.
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cluster nodes: 64
+Job stats:
+job                          count
+-------------------------  -------
+adaptor_trimming_pe              2
+add_chr_RNA_DNA                  2
+add_tags_bowtie2                 2
+all                              1
+annotate_rna                     1
+barcode_id                       2
+bowtie2_align                    2
+bowtie2_align_rna_repeats        2
+cat_ligation_efficiency          1
+combine_annotations_rna          1
+cutadapt                         2
+deduplicate_rRNA                 1
+get_ligation_efficiency          2
+hisat2_align                     2
+make_merged_clusters             1
+merge_dna                        1
+merge_rna                        1
+merge_rrna                       1
+multiqc                          1
+rename_clusters                  1
+repeat_mask                      2
+split_rpm_dpm                    2
+splitfq_R1                       1
+splitfq_R2                       1
+total                           35
+
+Select jobs to execute...
+
+[Fri Oct 18 15:12:49 2024]
+rule splitfq_R1:
+    input: /central/scratchio/mblanco/albert/sprite_test/DPM_first_subset_R1.fastq.gz
+    output: /central/scratchio/mblanco/albert/sprite_test_sample/workup/splitfq/DPM_first_R1.part_000.fastq.gz, /central/scratchio/mblanco/albert/sprite_test_sample/workup/splitfq/DPM_first_R1.part_001.fastq.gz
+    log: /central/scratchio/mblanco/albert/sprite_test_sample/workup/logs/DPM_first.splitfq_r1.log
+    jobid: 2
+    reason: Software environment definition has changed since last execution
+    wildcards: sample=DPM_first
+    threads: 4
+    resources: mem_mb=1000, mem_mib=954, disk_mb=1000, disk_mib=954, tmpdir=<TBD>
+
+Submitted job 2 with external jobid 'Submitted batch job 44571412'.
+
+[Fri Oct 18 15:12:51 2024]
+rule splitfq_R2:
+    input: /central/scratchio/mblanco/albert/sprite_test/DPM_first_subset_R2.fastq.gz
+    output: /central/scratchio/mblanco/albert/sprite_test_sample/workup/splitfq/DPM_first_R2.part_000.fastq.gz, /central/scratchio/mblanco/albert/sprite_test_sample/workup/splitfq/DPM_first_R2.part_001.fastq.gz
+    log: /central/scratchio/mblanco/albert/sprite_test_sample/workup/logs/DPM_first.splitfq_r2.log
+    jobid: 3
+    reason: Software environment definition has changed since last execution
+    wildcards: sample=DPM_first
+    threads: 4
+    resources: mem_mb=1000, mem_mib=954, disk_mb=1000, disk_mib=954, tmpdir=<TBD>
+
+Submitted job 3 with external jobid 'Submitted batch job 44571413'.
+Terminating processes on user request, this might take some time.
+No --cluster-cancel given. Will exit after finishing currently running jobs.
+Complete log: .snakemake/log/2024-10-18T151243.150539.snakemake.log

@@ -1,0 +1,10 @@
+{
+    "DPM_first": {
+        "R1": [
+            "/central/scratchio/mblanco/albert/sprite_test/DPM_first_subset_R1.fastq.gz"
+        ],
+        "R2": [
+            "/central/scratchio/mblanco/albert/sprite_test/DPM_first_subset_R2.fastq.gz"
+        ]
+    }
+}

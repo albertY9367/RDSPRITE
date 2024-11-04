@@ -1,0 +1,59 @@
+Config file config.yaml is extended by additional config specified via the command line.
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cluster nodes: 64
+Job stats:
+job                       count
+----------------------  -------
+all                           1
+cat_outlier_regions           1
+custom_mask                   1
+filter_outlier_regions        1
+find_outlier_regions          1
+make_merged_clusters          1
+rename_clusters               1
+total                         7
+
+Select jobs to execute...
+
+[Wed Oct 23 14:24:42 2024]
+rule find_outlier_regions:
+    input: /central/scratchio/mblanco/albert/sprite_test_output/workup/alignments/DPM_first.DNA.merged.bam
+    output: /central/scratchio/mblanco/albert/sprite_test_output/workup/DPM_first.outlier_regions.bed
+    jobid: 38
+    reason: Missing output files: /central/scratchio/mblanco/albert/sprite_test_output/workup/DPM_first.outlier_regions.bed
+    wildcards: sample=DPM_first
+    resources: mem_mb=1000, mem_mib=954, disk_mb=1000, disk_mib=954, tmpdir=<TBD>
+
+Submitted job 38 with external jobid 'Submitted batch job 44633785'.
+[Wed Oct 23 14:25:22 2024]
+Finished job 38.
+1 of 7 steps (14%) done
+Select jobs to execute...
+
+[Wed Oct 23 14:25:22 2024]
+rule filter_outlier_regions:
+    input: /central/scratchio/mblanco/albert/sprite_test_output/workup/DPM_first.outlier_regions.bed
+    output: /central/scratchio/mblanco/albert/sprite_test_output/workup/DPM_first.outlier_regions_thresh.bed
+    jobid: 37
+    reason: Missing output files: /central/scratchio/mblanco/albert/sprite_test_output/workup/DPM_first.outlier_regions_thresh.bed; Input files updated by another job: /central/scratchio/mblanco/albert/sprite_test_output/workup/DPM_first.outlier_regions.bed
+    wildcards: sample=DPM_first
+    resources: mem_mb=1000, mem_mib=954, disk_mb=1000, disk_mib=954, tmpdir=<TBD>
+
+Submitted job 37 with external jobid 'Submitted batch job 44633797'.
+[Wed Oct 23 14:25:32 2024]
+Finished job 37.
+2 of 7 steps (29%) done
+Select jobs to execute...
+
+[Wed Oct 23 14:25:32 2024]
+rule cat_outlier_regions:
+    input: /central/scratchio/mblanco/albert/sprite_test_output/workup/DPM_first.outlier_regions_thresh.bed
+    output: /central/scratchio/mblanco/albert/sprite_test_output/workup/custom_dna_mask.bed
+    jobid: 36
+    reason: Missing output files: /central/scratchio/mblanco/albert/sprite_test_output/workup/custom_dna_mask.bed; Input files updated by another job: /central/scratchio/mblanco/albert/sprite_test_output/workup/DPM_first.outlier_regions_thresh.bed
+    resources: mem_mb=1000, mem_mib=954, disk_mb=1000, disk_mib=954, tmpdir=<TBD>
+
+RuleException in rule cat_outlier_regions in file /central/home/zyang4/RDSPRITE_v4/Snakefilefilter_keepRPMDPM.smk, line 750:
+AttributeError: 'Wildcards' object has no attribute 'sample', when formatting the following:
+workup/logs/cluster/{rule}.{wildcards.sample}.out

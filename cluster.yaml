@@ -1,0 +1,168 @@
+__default__:
+    time: "12:00:00"
+    mem: 20g
+    cpus: 1
+    nodes: 1
+    output: "workup/logs/cluster/{rule}.{wildcards.sample}.out"
+    error: "workup/logs/cluster/{rule}.{wildcards.sample}.err"
+splitfq:
+    time: "48:00:00"
+    mem: 100g
+    cpus: 10
+    nodes: 4
+    output: "workup/logs/cluster/{rule}.{wildcards.sample}.out"
+    error: "workup/logs/cluster/{rule}.{wildcards.sample}.err"
+adaptor_trimming_pe:
+    time: "12:00:00"
+    mem: 50g
+    cpus: 10
+    nodes: 1
+    output: "workup/logs/cluster/{rule}.{wildcards.sample}.{wildcards.splitid}.out"
+    error: "workup/logs/cluster/{rule}.{wildcards.sample}.{wildcards.splitid}.err"
+cutadapt_dpm:
+    time: "12:00:00"
+    mem: 50g
+    cpus: 10
+    nodes: 1
+    output: "workup/logs/cluster/{rule}.{wildcards.sample}.{wildcards.splitid}.out"
+    error: "workup/logs/cluster/{rule}.{wildcards.sample}.{wildcards.splitid}.err"
+cutadapt_rpm:
+    time: "12:00:00"
+    mem: 50g
+    cpus: 10
+    nodes: 1
+    output: "workup/logs/cluster/{rule}.{wildcards.sample}.{wildcards.splitid}.out"
+    error: "workup/logs/cluster/{rule}.{wildcards.sample}.{wildcards.splitid}.err"
+barcode_id:
+    time: "12:00:00"
+    mem: 50g
+    cpus: 10
+    nodes: 1
+    output: "workup/logs/cluster/{rule}.{wildcards.sample}.{wildcards.splitid}.out"
+    error: "workup/logs/cluster/{rule}.{wildcards.sample}.{wildcards.splitid}.err"
+split_rpm_dpm:
+    time: "12:00:00"
+    mem: 50g
+    cpus: 10
+    nodes: 1
+    output: "workup/logs/cluster/{rule}.{wildcards.sample}.{wildcards.splitid}.out"
+    error: "workup/logs/cluster/{rule}.{wildcards.sample}.{wildcards.splitid}.err"
+bowtie2_align:
+    time: "12:00:00"
+    mem: 50g
+    cpus: 10
+    nodes: 1
+    output: "workup/logs/cluster/{rule}.{wildcards.sample}.{wildcards.splitid}.out"
+    error: "workup/logs/cluster/{rule}.{wildcards.sample}.{wildcards.splitid}.err"
+hisat2_align:
+    time: "12:00:00"
+    mem: 50g
+    cpus: 10
+    nodes: 1
+    output: "workup/logs/cluster/{rule}.{wildcards.sample}.{wildcards.splitid}.out"
+    error: "workup/logs/cluster/{rule}.{wildcards.sample}.{wildcards.splitid}.err"
+bowtie2_align_rna_repeats:
+    time: "12:00:00"
+    mem: 50g
+    cpus: 10
+    nodes: 1
+    output: "workup/logs/cluster/{rule}.{wildcards.sample}.{wildcards.splitid}.out"
+    error: "workup/logs/cluster/{rule}.{wildcards.sample}.{wildcards.splitid}.err"
+add_tags_bowtie2:
+    time: "12:00:00"
+    mem: 50g
+    cpus: 10
+    nodes: 1
+    output: "workup/logs/cluster/{rule}.{wildcards.sample}.{wildcards.splitid}.out"
+    error: "workup/logs/cluster/{rule}.{wildcards.sample}.{wildcards.splitid}.err"
+merge_dna:
+    time: "24:00:00"
+    mem: 50g
+    cpus: 10
+    nodes: 1
+    output: "workup/logs/cluster/{rule}.{wildcards.sample}.out"
+    error: "workup/logs/cluster/{rule}.{wildcards.sample}.err"
+merge_rna:
+    time: "24:00:00"
+    mem: 50g
+    cpus: 10
+    nodes: 1
+    output: "workup/logs/cluster/{rule}.{wildcards.sample}.out"
+    error: "workup/logs/cluster/{rule}.{wildcards.sample}.err"
+merge_rrna:
+    time: "24:00:00"
+    mem: 50g
+    cpus: 10
+    nodes: 1
+    output: "workup/logs/cluster/{rule}.{wildcards.sample}.out"
+    error: "workup/logs/cluster/{rule}.{wildcards.sample}.err"
+add_chr_RNA_DNA:
+    time: "12:00:00"
+    mem: 50g
+    cpus: 10
+    nodes: 1
+    output: "workup/logs/cluster/{rule}.{wildcards.sample}.{wildcards.splitid}.out"
+    error: "workup/logs/cluster/{rule}.{wildcards.sample}.{wildcards.splitid}.err"
+repeat_mask:
+    time: "12:00:00"
+    mem: 50g
+    cpus: 10
+    nodes: 1
+    output: "workup/logs/cluster/{rule}.{wildcards.sample}.{wildcards.splitid}.out"
+    error: "workup/logs/cluster/{rule}.{wildcards.sample}.{wildcards.splitid}.err"
+deduplicate_rRNA:
+    time: "12:00:00"
+    mem: 50g
+    cpus: 10
+    nodes: 1
+    output: "workup/logs/cluster/{rule}.{wildcards.sample}.out"
+    error: "workup/logs/cluster/{rule}.{wildcards.sample}.err"
+annotate_rna:
+    time: "24:00:00"
+    mem: 50g
+    cpus: 10
+    nodes: 1
+    output: "workup/logs/cluster/{rule}.{wildcards.sample}.out"
+    error: "workup/logs/cluster/{rule}.{wildcards.sample}.err"
+combine_annotations_rna:
+    time: "24:00:00"
+    mem: 50g
+    cpus: 10
+    nodes: 1
+    output: "workup/logs/cluster/{rule}.{wildcards.sample}.out"
+    error: "workup/logs/cluster/{rule}.{wildcards.sample}.err"
+make_merged_clusters:
+    time: "24:00:00"
+    mem: 100g
+    cpus: 10
+    nodes: 1
+    output: "workup/logs/cluster/{rule}.{wildcards.sample}.out"
+    error: "workup/logs/cluster/{rule}.{wildcards.sample}.err"
+rename_clusters:
+    time: "24:00:00"
+    mem: 50g
+    cpus: 10
+    nodes: 1
+    output: "workup/logs/cluster/{rule}.{wildcards.sample}.out"
+    error: "workup/logs/cluster/{rule}.{wildcards.sample}.err"
+multiqc:
+    time: "05:00:00"
+    mem: 20g
+    cpus: 1
+    nodes: 1
+    output: "workup/logs/cluster/{rule}.out"
+    error: "workup/logs/cluster/{rule}.err"
+cat_ligation_efficiency:
+    time: "05:00:00"
+    mem: 20g
+    cpus: 1
+    nodes: 1
+    output: "workup/logs/cluster/{rule}.out"
+    error: "workup/logs/cluster/{rule}.err"
+generate_statistics:
+    time: "05:00:00"
+    mem: 20g
+    cpus: 1
+    nodes: 1
+    output: "workup/logs/cluster/{rule}.out"
+    error: "workup/logs/cluster/{rule}.err"

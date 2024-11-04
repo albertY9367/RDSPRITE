@@ -1,0 +1,42 @@
+Config file config.yaml is extended by additional config specified via the command line.
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cluster nodes: 64
+Job stats:
+job                     count
+--------------------  -------
+all                         1
+cat_outlier_regions         1
+custom_mask                 1
+make_merged_clusters        1
+rename_clusters             1
+total                       5
+
+Select jobs to execute...
+
+[Mon Oct 28 15:54:53 2024]
+rule cat_outlier_regions:
+    input: /central/scratchio/mblanco/albert/sprite_test_sample_old/workup/DPM_first.outlier_regions_thresh.bed
+    output: /central/scratchio/mblanco/albert/sprite_test_sample_old/workup/custom_dna_mask.bed
+    log: /central/scratchio/mblanco/albert/sprite_test_sample_old/workup/logs/cat_outlier_regions.log
+    jobid: 36
+    reason: Missing output files: /central/scratchio/mblanco/albert/sprite_test_sample_old/workup/custom_dna_mask.bed
+    resources: mem_mb=1000, mem_mib=954, disk_mb=1000, disk_mib=954, tmpdir=<TBD>
+
+Submitted job 36 with external jobid 'Submitted batch job 44696540'.
+[Mon Oct 28 15:55:02 2024]
+Error in rule cat_outlier_regions:
+    jobid: 36
+    input: /central/scratchio/mblanco/albert/sprite_test_sample_old/workup/DPM_first.outlier_regions_thresh.bed
+    output: /central/scratchio/mblanco/albert/sprite_test_sample_old/workup/custom_dna_mask.bed
+    log: /central/scratchio/mblanco/albert/sprite_test_sample_old/workup/logs/cat_outlier_regions.log (check log file(s) for error details)
+    conda-env: chipdip
+    shell:
+        bedtools multiinter -i /central/scratchio/mblanco/albert/sprite_test_sample_old/workup/DPM_first.outlier_regions_thresh.bed > /central/scratchio/mblanco/albert/sprite_test_sample_old/workup/custom_dna_mask.bed
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+    cluster_jobid: Submitted batch job 44696540
+
+Error executing rule cat_outlier_regions on cluster (jobid: 36, external: Submitted batch job 44696540, jobscript: /central/home/zyang4/RDSPRITE_v4/.snakemake/tmp.1k9xbwh_/snakejob.cat_outlier_regions.36.sh). For error details see the cluster log and the log files of the involved rule(s).
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: .snakemake/log/2024-10-28T155426.320600.snakemake.log

@@ -1,0 +1,210 @@
+Config file config.yaml is extended by additional config specified via the command line.
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cluster nodes: 64
+Job stats:
+job                          count
+-------------------------  -------
+add_chr_RNA_DNA                  2
+add_tags_bowtie2                 2
+all                              1
+annotate_rna                     1
+bowtie2_align                    2
+bowtie2_align_rna_repeats        2
+cat_ligation_efficiency          1
+combine_annotations_rna          1
+get_ligation_efficiency          2
+hisat2_align                     2
+merge_dna                        1
+merge_rna                        1
+merge_rrna                       1
+merge_samp                       1
+multiqc                          1
+rename_clusters                  1
+repeat_mask                      2
+split_rpm_dpm                    2
+tag_annotated_rna                1
+total                           27
+
+Select jobs to execute...
+
+[Wed Oct 16 17:45:04 2024]
+rule get_ligation_efficiency:
+    input: /central/scratchio/mblanco/albert/sprite_test_output/workup/fastqs/DPM_first_R1.part_000.barcoded.fastq.gz
+    output: /central/scratchio/mblanco/albert/sprite_test_output/workup/DPM_first.part_000.ligation_efficiency.txt
+    jobid: 10
+    reason: Missing output files: /central/scratchio/mblanco/albert/sprite_test_output/workup/DPM_first.part_000.ligation_efficiency.txt
+    wildcards: sample=DPM_first, splitid=000
+    resources: mem_mb=1000, mem_mib=954, disk_mb=1000, disk_mib=954, tmpdir=<TBD>
+
+Submitted job 10 with external jobid 'Submitted batch job 44543363'.
+
+[Wed Oct 16 17:45:05 2024]
+rule split_rpm_dpm:
+    input: /central/scratchio/mblanco/albert/sprite_test_output/workup/fastqs/DPM_first_R1.part_001.barcoded.fastq.gz
+    output: /central/scratchio/mblanco/albert/sprite_test_output/workup/fastqs/DPM_first_R1.part_001.barcoded_dpm.fastq.gz, /central/scratchio/mblanco/albert/sprite_test_output/workup/fastqs/DPM_first_R1.part_001.barcoded_rpm.fastq.gz, /central/scratchio/mblanco/albert/sprite_test_output/workup/fastqs/DPM_first_R1.part_001.barcoded_other.fastq.gz, /central/scratchio/mblanco/albert/sprite_test_output/workup/fastqs/DPM_first_R1.part_001.barcoded_short.fastq.gz
+    log: /central/scratchio/mblanco/albert/sprite_test_output/workup/logs/DPM_first.001.RPM_DPM.log
+    jobid: 13
+    reason: Missing output files: /central/scratchio/mblanco/albert/sprite_test_output/workup/fastqs/DPM_first_R1.part_001.barcoded_dpm.fastq.gz, /central/scratchio/mblanco/albert/sprite_test_output/workup/fastqs/DPM_first_R1.part_001.barcoded_rpm.fastq.gz
+    wildcards: sample=DPM_first, splitid=001
+    resources: mem_mb=1000, mem_mib=954, disk_mb=1000, disk_mib=954, tmpdir=<TBD>
+
+Submitted job 13 with external jobid 'Submitted batch job 44543364'.
+
+[Wed Oct 16 17:45:05 2024]
+rule split_rpm_dpm:
+    input: /central/scratchio/mblanco/albert/sprite_test_output/workup/fastqs/DPM_first_R1.part_000.barcoded.fastq.gz
+    output: /central/scratchio/mblanco/albert/sprite_test_output/workup/fastqs/DPM_first_R1.part_000.barcoded_dpm.fastq.gz, /central/scratchio/mblanco/albert/sprite_test_output/workup/fastqs/DPM_first_R1.part_000.barcoded_rpm.fastq.gz, /central/scratchio/mblanco/albert/sprite_test_output/workup/fastqs/DPM_first_R1.part_000.barcoded_other.fastq.gz, /central/scratchio/mblanco/albert/sprite_test_output/workup/fastqs/DPM_first_R1.part_000.barcoded_short.fastq.gz
+    log: /central/scratchio/mblanco/albert/sprite_test_output/workup/logs/DPM_first.000.RPM_DPM.log
+    jobid: 12
+    reason: Missing output files: /central/scratchio/mblanco/albert/sprite_test_output/workup/fastqs/DPM_first_R1.part_000.barcoded_rpm.fastq.gz, /central/scratchio/mblanco/albert/sprite_test_output/workup/fastqs/DPM_first_R1.part_000.barcoded_dpm.fastq.gz
+    wildcards: sample=DPM_first, splitid=000
+    resources: mem_mb=1000, mem_mib=954, disk_mb=1000, disk_mib=954, tmpdir=<TBD>
+
+Submitted job 12 with external jobid 'Submitted batch job 44543365'.
+
+[Wed Oct 16 17:45:05 2024]
+rule get_ligation_efficiency:
+    input: /central/scratchio/mblanco/albert/sprite_test_output/workup/fastqs/DPM_first_R1.part_001.barcoded.fastq.gz
+    output: /central/scratchio/mblanco/albert/sprite_test_output/workup/DPM_first.part_001.ligation_efficiency.txt
+    jobid: 11
+    reason: Missing output files: /central/scratchio/mblanco/albert/sprite_test_output/workup/DPM_first.part_001.ligation_efficiency.txt
+    wildcards: sample=DPM_first, splitid=001
+    resources: mem_mb=1000, mem_mib=954, disk_mb=1000, disk_mib=954, tmpdir=<TBD>
+
+Submitted job 11 with external jobid 'Submitted batch job 44543366'.
+[Wed Oct 16 17:45:43 2024]
+Finished job 13.
+1 of 27 steps (4%) done
+Select jobs to execute...
+
+[Wed Oct 16 17:45:43 2024]
+rule bowtie2_align:
+    input: /central/scratchio/mblanco/albert/sprite_test_output/workup/fastqs/DPM_first_R1.part_001.barcoded_dpm.fastq.gz
+    output: /central/scratchio/mblanco/albert/sprite_test_output/workup/alignments_pieces/DPM_first.part_001.DNA.bowtie2.mapq20.bam, /central/scratchio/mblanco/albert/sprite_test_output/workup/alignments_pieces/DPM_first.part_001.unsorted.bam
+    log: /central/scratchio/mblanco/albert/sprite_test_output/workup/logs/DPM_first.001.bowtie2.log
+    jobid: 15
+    reason: Missing output files: /central/scratchio/mblanco/albert/sprite_test_output/workup/alignments_pieces/DPM_first.part_001.DNA.bowtie2.mapq20.bam; Input files updated by another job: /central/scratchio/mblanco/albert/sprite_test_output/workup/fastqs/DPM_first_R1.part_001.barcoded_dpm.fastq.gz
+    wildcards: sample=DPM_first, splitid=001
+    threads: 10
+    resources: mem_mb=1000, mem_mib=954, disk_mb=1000, disk_mib=954, tmpdir=<TBD>
+
+Submitted job 15 with external jobid 'Submitted batch job 44543391'.
+
+[Wed Oct 16 17:45:43 2024]
+rule hisat2_align:
+    input: /central/scratchio/mblanco/albert/sprite_test_output/workup/fastqs/DPM_first_R1.part_001.barcoded_rpm.fastq.gz
+    output: /central/scratchio/mblanco/albert/sprite_test_output/workup/alignments_pieces/DPM_first.part_001.RNA.hisat2.bam, /central/scratchio/mblanco/albert/sprite_test_output/workup/alignments_pieces/DPM_first.part_001.RNA.hisat2.mapq20.unsorted.bam, /central/scratchio/mblanco/albert/sprite_test_output/workup/alignments_pieces/DPM_first.part_001.RNA.hisat2.mapq20.bam, /central/scratchio/mblanco/albert/sprite_test_output/workup/alignments_pieces/DPM_first.part_001.RNA.hisat2.unmapped.lowmq.bam, /central/scratchio/mblanco/albert/sprite_test_output/workup/alignments_pieces/DPM_first.part_001.RNA.hisat2.unmapped.lowmq.fq.gz
+    log: /central/scratchio/mblanco/albert/sprite_test_output/workup/logs/DPM_first.001.hisat2.log
+    jobid: 17
+    reason: Missing output files: /central/scratchio/mblanco/albert/sprite_test_output/workup/alignments_pieces/DPM_first.part_001.RNA.hisat2.mapq20.bam, /central/scratchio/mblanco/albert/sprite_test_output/workup/alignments_pieces/DPM_first.part_001.RNA.hisat2.unmapped.lowmq.fq.gz; Input files updated by another job: /central/scratchio/mblanco/albert/sprite_test_output/workup/fastqs/DPM_first_R1.part_001.barcoded_rpm.fastq.gz
+    wildcards: sample=DPM_first, splitid=001
+    threads: 10
+    resources: mem_mb=1000, mem_mib=954, disk_mb=1000, disk_mib=954, tmpdir=<TBD>
+
+Submitted job 17 with external jobid 'Submitted batch job 44543392'.
+[Wed Oct 16 17:45:53 2024]
+Finished job 12.
+2 of 27 steps (7%) done
+Select jobs to execute...
+
+[Wed Oct 16 17:45:53 2024]
+rule bowtie2_align:
+    input: /central/scratchio/mblanco/albert/sprite_test_output/workup/fastqs/DPM_first_R1.part_000.barcoded_dpm.fastq.gz
+    output: /central/scratchio/mblanco/albert/sprite_test_output/workup/alignments_pieces/DPM_first.part_000.DNA.bowtie2.mapq20.bam, /central/scratchio/mblanco/albert/sprite_test_output/workup/alignments_pieces/DPM_first.part_000.unsorted.bam
+    log: /central/scratchio/mblanco/albert/sprite_test_output/workup/logs/DPM_first.000.bowtie2.log
+    jobid: 14
+    reason: Missing output files: /central/scratchio/mblanco/albert/sprite_test_output/workup/alignments_pieces/DPM_first.part_000.DNA.bowtie2.mapq20.bam; Input files updated by another job: /central/scratchio/mblanco/albert/sprite_test_output/workup/fastqs/DPM_first_R1.part_000.barcoded_dpm.fastq.gz
+    wildcards: sample=DPM_first, splitid=000
+    threads: 10
+    resources: mem_mb=1000, mem_mib=954, disk_mb=1000, disk_mib=954, tmpdir=<TBD>
+
+Submitted job 14 with external jobid 'Submitted batch job 44543393'.
+
+[Wed Oct 16 17:45:53 2024]
+rule hisat2_align:
+    input: /central/scratchio/mblanco/albert/sprite_test_output/workup/fastqs/DPM_first_R1.part_000.barcoded_rpm.fastq.gz
+    output: /central/scratchio/mblanco/albert/sprite_test_output/workup/alignments_pieces/DPM_first.part_000.RNA.hisat2.bam, /central/scratchio/mblanco/albert/sprite_test_output/workup/alignments_pieces/DPM_first.part_000.RNA.hisat2.mapq20.unsorted.bam, /central/scratchio/mblanco/albert/sprite_test_output/workup/alignments_pieces/DPM_first.part_000.RNA.hisat2.mapq20.bam, /central/scratchio/mblanco/albert/sprite_test_output/workup/alignments_pieces/DPM_first.part_000.RNA.hisat2.unmapped.lowmq.bam, /central/scratchio/mblanco/albert/sprite_test_output/workup/alignments_pieces/DPM_first.part_000.RNA.hisat2.unmapped.lowmq.fq.gz
+    log: /central/scratchio/mblanco/albert/sprite_test_output/workup/logs/DPM_first.000.hisat2.log
+    jobid: 16
+    reason: Missing output files: /central/scratchio/mblanco/albert/sprite_test_output/workup/alignments_pieces/DPM_first.part_000.RNA.hisat2.unmapped.lowmq.fq.gz, /central/scratchio/mblanco/albert/sprite_test_output/workup/alignments_pieces/DPM_first.part_000.RNA.hisat2.mapq20.bam; Input files updated by another job: /central/scratchio/mblanco/albert/sprite_test_output/workup/fastqs/DPM_first_R1.part_000.barcoded_rpm.fastq.gz
+    wildcards: sample=DPM_first, splitid=000
+    threads: 10
+    resources: mem_mb=1000, mem_mib=954, disk_mb=1000, disk_mib=954, tmpdir=<TBD>
+
+Submitted job 16 with external jobid 'Submitted batch job 44543394'.
+[Wed Oct 16 17:46:03 2024]
+Error in rule get_ligation_efficiency:
+    jobid: 10
+    input: /central/scratchio/mblanco/albert/sprite_test_output/workup/fastqs/DPM_first_R1.part_000.barcoded.fastq.gz
+    output: /central/scratchio/mblanco/albert/sprite_test_output/workup/DPM_first.part_000.ligation_efficiency.txt
+    conda-env: sprite
+    shell:
+        python scripts/python/get_ligation_efficiency.py /central/scratchio/mblanco/albert/sprite_test_output/workup/fastqs/DPM_first_R1.part_000.barcoded.fastq.gz > /central/scratchio/mblanco/albert/sprite_test_output/workup/DPM_first.part_000.ligation_efficiency.txt
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+    cluster_jobid: Submitted batch job 44543363
+
+Error executing rule get_ligation_efficiency on cluster (jobid: 10, external: Submitted batch job 44543363, jobscript: /central/home/zyang4/RDSPRITE_v4/.snakemake/tmp.fuex7tzv/snakejob.get_ligation_efficiency.10.sh). For error details see the cluster log and the log files of the involved rule(s).
+[Wed Oct 16 17:46:03 2024]
+Error in rule get_ligation_efficiency:
+    jobid: 11
+    input: /central/scratchio/mblanco/albert/sprite_test_output/workup/fastqs/DPM_first_R1.part_001.barcoded.fastq.gz
+    output: /central/scratchio/mblanco/albert/sprite_test_output/workup/DPM_first.part_001.ligation_efficiency.txt
+    conda-env: sprite
+    shell:
+        python scripts/python/get_ligation_efficiency.py /central/scratchio/mblanco/albert/sprite_test_output/workup/fastqs/DPM_first_R1.part_001.barcoded.fastq.gz > /central/scratchio/mblanco/albert/sprite_test_output/workup/DPM_first.part_001.ligation_efficiency.txt
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+    cluster_jobid: Submitted batch job 44543366
+
+Error executing rule get_ligation_efficiency on cluster (jobid: 11, external: Submitted batch job 44543366, jobscript: /central/home/zyang4/RDSPRITE_v4/.snakemake/tmp.fuex7tzv/snakejob.get_ligation_efficiency.11.sh). For error details see the cluster log and the log files of the involved rule(s).
+[Wed Oct 16 17:46:13 2024]
+Error in rule hisat2_align:
+    jobid: 17
+    input: /central/scratchio/mblanco/albert/sprite_test_output/workup/fastqs/DPM_first_R1.part_001.barcoded_rpm.fastq.gz
+    output: /central/scratchio/mblanco/albert/sprite_test_output/workup/alignments_pieces/DPM_first.part_001.RNA.hisat2.bam, /central/scratchio/mblanco/albert/sprite_test_output/workup/alignments_pieces/DPM_first.part_001.RNA.hisat2.mapq20.unsorted.bam, /central/scratchio/mblanco/albert/sprite_test_output/workup/alignments_pieces/DPM_first.part_001.RNA.hisat2.mapq20.bam, /central/scratchio/mblanco/albert/sprite_test_output/workup/alignments_pieces/DPM_first.part_001.RNA.hisat2.unmapped.lowmq.bam, /central/scratchio/mblanco/albert/sprite_test_output/workup/alignments_pieces/DPM_first.part_001.RNA.hisat2.unmapped.lowmq.fq.gz
+    log: /central/scratchio/mblanco/albert/sprite_test_output/workup/logs/DPM_first.001.hisat2.log (check log file(s) for error details)
+    conda-env: sprite
+    shell:
+        
+        (hisat2 --end-to-end         -p 10         -t         --phred33         --known-splicesite-infile /groups/guttman/SPRITE_pipelines/genomes/mm10/hisat2/Mus_musculus.GRCm38.95.ss         -x /groups/guttman/SPRITE_pipelines/genomes/mm10/hisat2/GRCm38.p6         -U /central/scratchio/mblanco/albert/sprite_test_output/workup/fastqs/DPM_first_R1.part_001.barcoded_rpm.fastq.gz |         samtools view -b -F 256 - > /central/scratchio/mblanco/albert/sprite_test_output/workup/alignments_pieces/DPM_first.part_001.RNA.hisat2.bam) &> /central/scratchio/mblanco/albert/sprite_test_output/workup/logs/DPM_first.001.hisat2.log
+        #split out unmapped and low mapq reads for realignment to repeats
+        samtools view -bq 20 -U /central/scratchio/mblanco/albert/sprite_test_output/workup/alignments_pieces/DPM_first.part_001.RNA.hisat2.unmapped.lowmq.bam -F 4 /central/scratchio/mblanco/albert/sprite_test_output/workup/alignments_pieces/DPM_first.part_001.RNA.hisat2.bam > /central/scratchio/mblanco/albert/sprite_test_output/workup/alignments_pieces/DPM_first.part_001.RNA.hisat2.mapq20.unsorted.bam
+        samtools sort -@ 10 -o /central/scratchio/mblanco/albert/sprite_test_output/workup/alignments_pieces/DPM_first.part_001.RNA.hisat2.mapq20.bam /central/scratchio/mblanco/albert/sprite_test_output/workup/alignments_pieces/DPM_first.part_001.RNA.hisat2.mapq20.unsorted.bam
+        samtools bam2fq -@ 10 /central/scratchio/mblanco/albert/sprite_test_output/workup/alignments_pieces/DPM_first.part_001.RNA.hisat2.unmapped.lowmq.bam > /central/scratchio/mblanco/albert/sprite_test_output/workup/alignments/DPM_first.RNA.hisat2.unmapped.lowmq.fq
+        pigz /central/scratchio/mblanco/albert/sprite_test_output/workup/alignments/DPM_first.RNA.hisat2.unmapped.lowmq.fq
+        
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+    cluster_jobid: Submitted batch job 44543392
+
+Error executing rule hisat2_align on cluster (jobid: 17, external: Submitted batch job 44543392, jobscript: /central/home/zyang4/RDSPRITE_v4/.snakemake/tmp.fuex7tzv/snakejob.hisat2_align.17.sh). For error details see the cluster log and the log files of the involved rule(s).
+[Wed Oct 16 17:46:13 2024]
+Finished job 15.
+3 of 27 steps (11%) done
+Removing temporary output /central/scratchio/mblanco/albert/sprite_test_output/workup/alignments_pieces/DPM_first.part_001.unsorted.bam.
+[Wed Oct 16 17:46:23 2024]
+Error in rule hisat2_align:
+    jobid: 16
+    input: /central/scratchio/mblanco/albert/sprite_test_output/workup/fastqs/DPM_first_R1.part_000.barcoded_rpm.fastq.gz
+    output: /central/scratchio/mblanco/albert/sprite_test_output/workup/alignments_pieces/DPM_first.part_000.RNA.hisat2.bam, /central/scratchio/mblanco/albert/sprite_test_output/workup/alignments_pieces/DPM_first.part_000.RNA.hisat2.mapq20.unsorted.bam, /central/scratchio/mblanco/albert/sprite_test_output/workup/alignments_pieces/DPM_first.part_000.RNA.hisat2.mapq20.bam, /central/scratchio/mblanco/albert/sprite_test_output/workup/alignments_pieces/DPM_first.part_000.RNA.hisat2.unmapped.lowmq.bam, /central/scratchio/mblanco/albert/sprite_test_output/workup/alignments_pieces/DPM_first.part_000.RNA.hisat2.unmapped.lowmq.fq.gz
+    log: /central/scratchio/mblanco/albert/sprite_test_output/workup/logs/DPM_first.000.hisat2.log (check log file(s) for error details)
+    conda-env: sprite
+    shell:
+        
+        (hisat2 --end-to-end         -p 10         -t         --phred33         --known-splicesite-infile /groups/guttman/SPRITE_pipelines/genomes/mm10/hisat2/Mus_musculus.GRCm38.95.ss         -x /groups/guttman/SPRITE_pipelines/genomes/mm10/hisat2/GRCm38.p6         -U /central/scratchio/mblanco/albert/sprite_test_output/workup/fastqs/DPM_first_R1.part_000.barcoded_rpm.fastq.gz |         samtools view -b -F 256 - > /central/scratchio/mblanco/albert/sprite_test_output/workup/alignments_pieces/DPM_first.part_000.RNA.hisat2.bam) &> /central/scratchio/mblanco/albert/sprite_test_output/workup/logs/DPM_first.000.hisat2.log
+        #split out unmapped and low mapq reads for realignment to repeats
+        samtools view -bq 20 -U /central/scratchio/mblanco/albert/sprite_test_output/workup/alignments_pieces/DPM_first.part_000.RNA.hisat2.unmapped.lowmq.bam -F 4 /central/scratchio/mblanco/albert/sprite_test_output/workup/alignments_pieces/DPM_first.part_000.RNA.hisat2.bam > /central/scratchio/mblanco/albert/sprite_test_output/workup/alignments_pieces/DPM_first.part_000.RNA.hisat2.mapq20.unsorted.bam
+        samtools sort -@ 10 -o /central/scratchio/mblanco/albert/sprite_test_output/workup/alignments_pieces/DPM_first.part_000.RNA.hisat2.mapq20.bam /central/scratchio/mblanco/albert/sprite_test_output/workup/alignments_pieces/DPM_first.part_000.RNA.hisat2.mapq20.unsorted.bam
+        samtools bam2fq -@ 10 /central/scratchio/mblanco/albert/sprite_test_output/workup/alignments_pieces/DPM_first.part_000.RNA.hisat2.unmapped.lowmq.bam > /central/scratchio/mblanco/albert/sprite_test_output/workup/alignments/DPM_first.RNA.hisat2.unmapped.lowmq.fq
+        pigz /central/scratchio/mblanco/albert/sprite_test_output/workup/alignments/DPM_first.RNA.hisat2.unmapped.lowmq.fq
+        
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+    cluster_jobid: Submitted batch job 44543394
+
+Error executing rule hisat2_align on cluster (jobid: 16, external: Submitted batch job 44543394, jobscript: /central/home/zyang4/RDSPRITE_v4/.snakemake/tmp.fuex7tzv/snakejob.hisat2_align.16.sh). For error details see the cluster log and the log files of the involved rule(s).
+[Wed Oct 16 17:46:23 2024]
+Finished job 14.
+4 of 27 steps (15%) done
+Removing temporary output /central/scratchio/mblanco/albert/sprite_test_output/workup/alignments_pieces/DPM_first.part_000.unsorted.bam.
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: .snakemake/log/2024-10-16T174456.883599.snakemake.log

@@ -1,0 +1,63 @@
+Config file config.yaml is extended by additional config specified via the command line.
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cluster nodes: 64
+Job stats:
+job                          count
+-------------------------  -------
+adaptor_trimming_pe             20
+add_chr_RNA_DNA                 20
+add_tags_bowtie2                20
+all                              1
+annotate_rna                     1
+barcode_id                      20
+bowtie2_align                   20
+bowtie2_align_rna_repeats       20
+cat_ligation_efficiency          1
+combine_annotations_rna          1
+cutadapt                        20
+get_ligation_efficiency         20
+hisat2_align                    20
+merge_dna                        1
+merge_rna                        1
+merge_rrna                       1
+merge_samp                       1
+multiqc                          1
+rename_clusters                  1
+repeat_mask                     20
+split_rpm_dpm                   20
+splitfq_R1                       1
+splitfq_R2                       1
+tag_annotated_rna                1
+total                          233
+
+Select jobs to execute...
+
+[Wed Oct 16 17:34:12 2024]
+rule splitfq_R1:
+    input: /central/scratchio/mblanco/albert/sprite_test/DPM_first_subset_R1.fastq.gz
+    output: /central/scratchio/mblanco/albert/sprite_test_output/workup/splitfq/DPM_first_R1.part_000.fastq.gz, /central/scratchio/mblanco/albert/sprite_test_output/workup/splitfq/DPM_first_R1.part_001.fastq.gz, /central/scratchio/mblanco/albert/sprite_test_output/workup/splitfq/DPM_first_R1.part_002.fastq.gz, /central/scratchio/mblanco/albert/sprite_test_output/workup/splitfq/DPM_first_R1.part_003.fastq.gz, /central/scratchio/mblanco/albert/sprite_test_output/workup/splitfq/DPM_first_R1.part_004.fastq.gz, /central/scratchio/mblanco/albert/sprite_test_output/workup/splitfq/DPM_first_R1.part_005.fastq.gz, /central/scratchio/mblanco/albert/sprite_test_output/workup/splitfq/DPM_first_R1.part_006.fastq.gz, /central/scratchio/mblanco/albert/sprite_test_output/workup/splitfq/DPM_first_R1.part_007.fastq.gz, /central/scratchio/mblanco/albert/sprite_test_output/workup/splitfq/DPM_first_R1.part_008.fastq.gz, /central/scratchio/mblanco/albert/sprite_test_output/workup/splitfq/DPM_first_R1.part_009.fastq.gz, /central/scratchio/mblanco/albert/sprite_test_output/workup/splitfq/DPM_first_R1.part_010.fastq.gz, /central/scratchio/mblanco/albert/sprite_test_output/workup/splitfq/DPM_first_R1.part_011.fastq.gz, /central/scratchio/mblanco/albert/sprite_test_output/workup/splitfq/DPM_first_R1.part_012.fastq.gz, /central/scratchio/mblanco/albert/sprite_test_output/workup/splitfq/DPM_first_R1.part_013.fastq.gz, /central/scratchio/mblanco/albert/sprite_test_output/workup/splitfq/DPM_first_R1.part_014.fastq.gz, /central/scratchio/mblanco/albert/sprite_test_output/workup/splitfq/DPM_first_R1.part_015.fastq.gz, /central/scratchio/mblanco/albert/sprite_test_output/workup/splitfq/DPM_first_R1.part_016.fastq.gz, /central/scratchio/mblanco/albert/sprite_test_output/workup/splitfq/DPM_first_R1.part_017.fastq.gz, /central/scratchio/mblanco/albert/sprite_test_output/workup/splitfq/DPM_first_R1.part_018.fastq.gz, /central/scratchio/mblanco/albert/sprite_test_output/workup/splitfq/DPM_first_R1.part_019.fastq.gz
+    log: /central/scratchio/mblanco/albert/sprite_test_output/workup/logs/DPM_first.splitfq_r1.log
+    jobid: 2
+    reason: Missing output files: /central/scratchio/mblanco/albert/sprite_test_output/workup/splitfq/DPM_first_R1.part_013.fastq.gz, /central/scratchio/mblanco/albert/sprite_test_output/workup/splitfq/DPM_first_R1.part_019.fastq.gz, /central/scratchio/mblanco/albert/sprite_test_output/workup/splitfq/DPM_first_R1.part_017.fastq.gz, /central/scratchio/mblanco/albert/sprite_test_output/workup/splitfq/DPM_first_R1.part_001.fastq.gz, /central/scratchio/mblanco/albert/sprite_test_output/workup/splitfq/DPM_first_R1.part_006.fastq.gz, /central/scratchio/mblanco/albert/sprite_test_output/workup/splitfq/DPM_first_R1.part_008.fastq.gz, /central/scratchio/mblanco/albert/sprite_test_output/workup/splitfq/DPM_first_R1.part_011.fastq.gz, /central/scratchio/mblanco/albert/sprite_test_output/workup/splitfq/DPM_first_R1.part_000.fastq.gz, /central/scratchio/mblanco/albert/sprite_test_output/workup/splitfq/DPM_first_R1.part_009.fastq.gz, /central/scratchio/mblanco/albert/sprite_test_output/workup/splitfq/DPM_first_R1.part_004.fastq.gz, /central/scratchio/mblanco/albert/sprite_test_output/workup/splitfq/DPM_first_R1.part_018.fastq.gz, /central/scratchio/mblanco/albert/sprite_test_output/workup/splitfq/DPM_first_R1.part_002.fastq.gz, /central/scratchio/mblanco/albert/sprite_test_output/workup/splitfq/DPM_first_R1.part_003.fastq.gz, /central/scratchio/mblanco/albert/sprite_test_output/workup/splitfq/DPM_first_R1.part_016.fastq.gz, /central/scratchio/mblanco/albert/sprite_test_output/workup/splitfq/DPM_first_R1.part_015.fastq.gz, /central/scratchio/mblanco/albert/sprite_test_output/workup/splitfq/DPM_first_R1.part_005.fastq.gz, /central/scratchio/mblanco/albert/sprite_test_output/workup/splitfq/DPM_first_R1.part_014.fastq.gz, /central/scratchio/mblanco/albert/sprite_test_output/workup/splitfq/DPM_first_R1.part_007.fastq.gz, /central/scratchio/mblanco/albert/sprite_test_output/workup/splitfq/DPM_first_R1.part_010.fastq.gz, /central/scratchio/mblanco/albert/sprite_test_output/workup/splitfq/DPM_first_R1.part_012.fastq.gz
+    wildcards: sample=DPM_first
+    threads: 4
+    resources: mem_mb=1000, mem_mib=954, disk_mb=1000, disk_mib=954, tmpdir=<TBD>
+
+Submitted job 2 with external jobid 'Submitted batch job 44542932'.
+
+[Wed Oct 16 17:34:14 2024]
+rule splitfq_R2:
+    input: /central/scratchio/mblanco/albert/sprite_test/DPM_first_subset_R2.fastq.gz
+    output: /central/scratchio/mblanco/albert/sprite_test_output/workup/splitfq/DPM_first_R2.part_000.fastq.gz, /central/scratchio/mblanco/albert/sprite_test_output/workup/splitfq/DPM_first_R2.part_001.fastq.gz, /central/scratchio/mblanco/albert/sprite_test_output/workup/splitfq/DPM_first_R2.part_002.fastq.gz, /central/scratchio/mblanco/albert/sprite_test_output/workup/splitfq/DPM_first_R2.part_003.fastq.gz, /central/scratchio/mblanco/albert/sprite_test_output/workup/splitfq/DPM_first_R2.part_004.fastq.gz, /central/scratchio/mblanco/albert/sprite_test_output/workup/splitfq/DPM_first_R2.part_005.fastq.gz, /central/scratchio/mblanco/albert/sprite_test_output/workup/splitfq/DPM_first_R2.part_006.fastq.gz, /central/scratchio/mblanco/albert/sprite_test_output/workup/splitfq/DPM_first_R2.part_007.fastq.gz, /central/scratchio/mblanco/albert/sprite_test_output/workup/splitfq/DPM_first_R2.part_008.fastq.gz, /central/scratchio/mblanco/albert/sprite_test_output/workup/splitfq/DPM_first_R2.part_009.fastq.gz, /central/scratchio/mblanco/albert/sprite_test_output/workup/splitfq/DPM_first_R2.part_010.fastq.gz, /central/scratchio/mblanco/albert/sprite_test_output/workup/splitfq/DPM_first_R2.part_011.fastq.gz, /central/scratchio/mblanco/albert/sprite_test_output/workup/splitfq/DPM_first_R2.part_012.fastq.gz, /central/scratchio/mblanco/albert/sprite_test_output/workup/splitfq/DPM_first_R2.part_013.fastq.gz, /central/scratchio/mblanco/albert/sprite_test_output/workup/splitfq/DPM_first_R2.part_014.fastq.gz, /central/scratchio/mblanco/albert/sprite_test_output/workup/splitfq/DPM_first_R2.part_015.fastq.gz, /central/scratchio/mblanco/albert/sprite_test_output/workup/splitfq/DPM_first_R2.part_016.fastq.gz, /central/scratchio/mblanco/albert/sprite_test_output/workup/splitfq/DPM_first_R2.part_017.fastq.gz, /central/scratchio/mblanco/albert/sprite_test_output/workup/splitfq/DPM_first_R2.part_018.fastq.gz, /central/scratchio/mblanco/albert/sprite_test_output/workup/splitfq/DPM_first_R2.part_019.fastq.gz
+    log: /central/scratchio/mblanco/albert/sprite_test_output/workup/logs/DPM_first.splitfq_r2.log
+    jobid: 3
+    reason: Missing output files: /central/scratchio/mblanco/albert/sprite_test_output/workup/splitfq/DPM_first_R2.part_005.fastq.gz, /central/scratchio/mblanco/albert/sprite_test_output/workup/splitfq/DPM_first_R2.part_007.fastq.gz, /central/scratchio/mblanco/albert/sprite_test_output/workup/splitfq/DPM_first_R2.part_017.fastq.gz, /central/scratchio/mblanco/albert/sprite_test_output/workup/splitfq/DPM_first_R2.part_000.fastq.gz, /central/scratchio/mblanco/albert/sprite_test_output/workup/splitfq/DPM_first_R2.part_009.fastq.gz, /central/scratchio/mblanco/albert/sprite_test_output/workup/splitfq/DPM_first_R2.part_012.fastq.gz, /central/scratchio/mblanco/albert/sprite_test_output/workup/splitfq/DPM_first_R2.part_018.fastq.gz, /central/scratchio/mblanco/albert/sprite_test_output/workup/splitfq/DPM_first_R2.part_019.fastq.gz, /central/scratchio/mblanco/albert/sprite_test_output/workup/splitfq/DPM_first_R2.part_004.fastq.gz, /central/scratchio/mblanco/albert/sprite_test_output/workup/splitfq/DPM_first_R2.part_002.fastq.gz, /central/scratchio/mblanco/albert/sprite_test_output/workup/splitfq/DPM_first_R2.part_006.fastq.gz, /central/scratchio/mblanco/albert/sprite_test_output/workup/splitfq/DPM_first_R2.part_013.fastq.gz, /central/scratchio/mblanco/albert/sprite_test_output/workup/splitfq/DPM_first_R2.part_016.fastq.gz, /central/scratchio/mblanco/albert/sprite_test_output/workup/splitfq/DPM_first_R2.part_015.fastq.gz, /central/scratchio/mblanco/albert/sprite_test_output/workup/splitfq/DPM_first_R2.part_011.fastq.gz, /central/scratchio/mblanco/albert/sprite_test_output/workup/splitfq/DPM_first_R2.part_003.fastq.gz, /central/scratchio/mblanco/albert/sprite_test_output/workup/splitfq/DPM_first_R2.part_014.fastq.gz, /central/scratchio/mblanco/albert/sprite_test_output/workup/splitfq/DPM_first_R2.part_010.fastq.gz, /central/scratchio/mblanco/albert/sprite_test_output/workup/splitfq/DPM_first_R2.part_001.fastq.gz, /central/scratchio/mblanco/albert/sprite_test_output/workup/splitfq/DPM_first_R2.part_008.fastq.gz
+    wildcards: sample=DPM_first
+    threads: 4
+    resources: mem_mb=1000, mem_mib=954, disk_mb=1000, disk_mib=954, tmpdir=<TBD>
+
+Submitted job 3 with external jobid 'Submitted batch job 44542933'.
+Terminating processes on user request, this might take some time.
+No --cluster-cancel given. Will exit after finishing currently running jobs.
+Cancelling snakemake on user request.

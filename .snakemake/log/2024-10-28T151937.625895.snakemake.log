@@ -1,0 +1,54 @@
+Config file config.yaml is extended by additional config specified via the command line.
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cluster nodes: 64
+Job stats:
+job                    count
+-------------------  -------
+all                        1
+generate_statistics        1
+multiqc                    1
+total                      3
+
+Select jobs to execute...
+
+[Mon Oct 28 15:19:43 2024]
+rule generate_statistics:
+    input: /central/scratchio/mblanco/albert/sprite_test_sample/workup/clusters/DPM_first.bam
+    output: /central/scratchio/mblanco/albert/sprite_test_sample/workup/clusters/cluster_statistics.txt, /central/scratchio/mblanco/albert/sprite_test_sample/workup/clusters/DPM_read_distribution.pdf, /central/scratchio/mblanco/albert/sprite_test_sample/workup/clusters/DPM_cluster_distribution.pdf, /central/scratchio/mblanco/albert/sprite_test_sample/workup/clusters/RPM_read_distribution.pdf, /central/scratchio/mblanco/albert/sprite_test_sample/workup/clusters/RPM_cluster_distribution.pdf
+    log: /central/scratchio/mblanco/albert/sprite_test_sample/workup/logs/generate_statistics.log
+    jobid: 35
+    reason: Missing output files: /central/scratchio/mblanco/albert/sprite_test_sample/workup/clusters/RPM_read_distribution.pdf, /central/scratchio/mblanco/albert/sprite_test_sample/workup/clusters/RPM_cluster_distribution.pdf, /central/scratchio/mblanco/albert/sprite_test_sample/workup/clusters/cluster_statistics.txt, /central/scratchio/mblanco/albert/sprite_test_sample/workup/clusters/DPM_cluster_distribution.pdf, /central/scratchio/mblanco/albert/sprite_test_sample/workup/clusters/DPM_read_distribution.pdf
+    resources: mem_mb=1000, mem_mib=954, disk_mb=1000, disk_mib=954, tmpdir=<TBD>
+
+Submitted job 35 with external jobid 'Submitted batch job 44696002'.
+
+[Mon Oct 28 15:19:44 2024]
+rule multiqc:
+    input: /central/scratchio/mblanco/albert/sprite_test_sample/workup/clusters/DPM_first.bam
+    output: /central/scratchio/mblanco/albert/sprite_test_sample/workup/qc/multiqc_report.html
+    log: /central/scratchio/mblanco/albert/sprite_test_sample/workup/logs/multiqc.log
+    jobid: 33
+    reason: Updated input files: /central/scratchio/mblanco/albert/sprite_test_sample/workup/clusters/DPM_first.bam
+    resources: mem_mb=1000, mem_mib=954, disk_mb=1000, disk_mib=954, tmpdir=<TBD>
+
+Submitted job 33 with external jobid 'Submitted batch job 44696003'.
+[Mon Oct 28 15:20:23 2024]
+Error in rule multiqc:
+    jobid: 33
+    input: /central/scratchio/mblanco/albert/sprite_test_sample/workup/clusters/DPM_first.bam
+    output: /central/scratchio/mblanco/albert/sprite_test_sample/workup/qc/multiqc_report.html
+    log: /central/scratchio/mblanco/albert/sprite_test_sample/workup/logs/multiqc.log (check log file(s) for error details)
+    conda-env: chipdip
+    shell:
+        multiqc /central/scratchio/mblanco/albert/sprite_test_sample/workup -o /central/scratchio/mblanco/albert/sprite_test_sample/workup/qc
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+    cluster_jobid: Submitted batch job 44696003
+
+Error executing rule multiqc on cluster (jobid: 33, external: Submitted batch job 44696003, jobscript: /central/home/zyang4/RDSPRITE_v4/.snakemake/tmp.m7uyfvp0/snakejob.multiqc.33.sh). For error details see the cluster log and the log files of the involved rule(s).
+[Mon Oct 28 15:20:43 2024]
+Finished job 35.
+1 of 3 steps (33%) done
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: .snakemake/log/2024-10-28T151937.625895.snakemake.log

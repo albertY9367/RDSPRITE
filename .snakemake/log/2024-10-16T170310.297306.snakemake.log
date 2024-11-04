@@ -1,0 +1,6 @@
+Config file config.yaml is extended by additional config specified via the command line.
+Building DAG of jobs...
+MissingInputException in rule all in file /central/home/zyang4/RDSPRITE_v4/Snakefile, line 259:
+Missing input files for rule all:
+    affected files:
+        /central/scratchio/mblanco/albert/workupworkup/alignments/DPM_first.RNA.merged.anno.tagged.bam

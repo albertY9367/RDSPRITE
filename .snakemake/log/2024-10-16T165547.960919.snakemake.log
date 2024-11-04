@@ -1,0 +1,8 @@
+Config file config.yaml is extended by additional config specified via the command line.
+Building DAG of jobs...
+MissingInputException in rule merge_samp in file /central/home/zyang4/RDSPRITE_v4/Snakefile, line 767:
+Missing input files for rule merge_samp:
+    output: workup/clusters/DPM_first.bam
+    wildcards: sample=DPM_first
+    affected files:
+        workup/alignments/DPM_first.RNAr.merged.tagged.bam

@@ -1,0 +1,3 @@
+NameError in file /central/home/zyang4/RDSPRITE_v4/Snakefile, line 279:
+name 'DIR_WORKUP' is not defined
+  File "/central/home/zyang4/RDSPRITE_v4/Snakefile", line 279, in <module>

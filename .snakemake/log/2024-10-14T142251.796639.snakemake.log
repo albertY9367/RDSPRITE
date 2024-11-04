@@ -1,0 +1,3 @@
+NameError in file /central/home/zyang4/RDSPRITE_v4/Snakefile, line 285:
+name 'DIR_LOGS' is not defined
+  File "/central/home/zyang4/RDSPRITE_v4/Snakefile", line 285, in <module>

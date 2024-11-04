@@ -1,0 +1,123 @@
+Config file config.yaml is extended by additional config specified via the command line.
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cluster nodes: 64
+Job stats:
+job                        count
+-----------------------  -------
+all                            1
+combine_annotations_rna        1
+merge_dna                      1
+merge_samp                     1
+multiqc                        1
+rename_clusters                1
+tag_annotated_rna              1
+total                          7
+
+Select jobs to execute...
+
+[Fri Oct 18 16:20:48 2024]
+rule merge_dna:
+    input: /central/scratchio/mblanco/albert/sprite_test_output/workup/alignments_pieces/DPM_first.part_000.DNA.chr.masked.bam, /central/scratchio/mblanco/albert/sprite_test_output/workup/alignments_pieces/DPM_first.part_001.DNA.chr.masked.bam
+    output: /central/scratchio/mblanco/albert/sprite_test_output/workup/alignments/DPM_first.DNA.merged.bam, /central/scratchio/mblanco/albert/sprite_test_output/workup/alignments/DPM_first.DNA.merged.tagged.bam
+    log: /central/scratchio/mblanco/albert/sprite_test_output/workup/logs/DPM_first.merge_DNA.log
+    jobid: 26
+    reason: Missing output files: /central/scratchio/mblanco/albert/sprite_test_output/workup/alignments/DPM_first.DNA.merged.tagged.bam
+    wildcards: sample=DPM_first
+    threads: 8
+    resources: mem_mb=1000, mem_mib=954, disk_mb=1000, disk_mib=954, tmpdir=<TBD>
+
+Submitted job 26 with external jobid 'Submitted batch job 44572787'.
+
+[Fri Oct 18 16:20:49 2024]
+rule combine_annotations_rna:
+    input: /central/scratchio/mblanco/albert/sprite_test_output/workup/alignments/DPM_first.RNA.merged.bam, /central/scratchio/mblanco/albert/sprite_test_output/workup/annotations/DPM_first.RNAexin.hisat2.mapq20.bam.featureCounts.bam, /central/scratchio/mblanco/albert/sprite_test_output/workup/annotations/DPM_first.RNAr.hisat2.mapq20.bam.featureCounts.bam, /central/scratchio/mblanco/albert/sprite_test_output/workup/annotations/DPM_first.RNAanti.hisat2.mapq20.bam.featureCounts.bam
+    output: /central/scratchio/mblanco/albert/sprite_test_output/workup/annotations/DPM_first.RNA.merged.anno.bam
+    log: /central/scratchio/mblanco/albert/sprite_test_output/workup/logs/DPM_first.RNA_anno_combine.log
+    jobid: 28
+    reason: Missing output files: /central/scratchio/mblanco/albert/sprite_test_output/workup/annotations/DPM_first.RNA.merged.anno.bam
+    wildcards: sample=DPM_first
+    resources: mem_mb=1000, mem_mib=954, disk_mb=1000, disk_mib=954, tmpdir=<TBD>
+
+Submitted job 28 with external jobid 'Submitted batch job 44572788'.
+[Fri Oct 18 16:20:58 2024]
+Finished job 26.
+1 of 7 steps (14%) done
+Removing temporary output /central/scratchio/mblanco/albert/sprite_test_output/workup/alignments/DPM_first.DNA.merged.bam.
+[Fri Oct 18 16:20:58 2024]
+Finished job 28.
+2 of 7 steps (29%) done
+Select jobs to execute...
+
+[Fri Oct 18 16:20:58 2024]
+rule tag_annotated_rna:
+    input: /central/scratchio/mblanco/albert/sprite_test_output/workup/annotations/DPM_first.RNA.merged.anno.bam
+    output: /central/scratchio/mblanco/albert/sprite_test_output/workup/annotations/DPM_first.RNA.merged.anno.tagged.bam
+    log: /central/scratchio/mblanco/albert/sprite_test_output/workup/logs/DPM_first.RNA_anno_tag.log
+    jobid: 27
+    reason: Missing output files: /central/scratchio/mblanco/albert/sprite_test_output/workup/annotations/DPM_first.RNA.merged.anno.tagged.bam; Input files updated by another job: /central/scratchio/mblanco/albert/sprite_test_output/workup/annotations/DPM_first.RNA.merged.anno.bam
+    wildcards: sample=DPM_first
+    resources: mem_mb=1000, mem_mib=954, disk_mb=1000, disk_mib=954, tmpdir=<TBD>
+
+Submitted job 27 with external jobid 'Submitted batch job 44572790'.
+[Fri Oct 18 16:21:38 2024]
+Finished job 27.
+3 of 7 steps (43%) done
+Select jobs to execute...
+
+[Fri Oct 18 16:21:38 2024]
+rule merge_samp:
+    input: /central/scratchio/mblanco/albert/sprite_test_output/workup/alignments/DPM_first.DNA.merged.tagged.bam, /central/scratchio/mblanco/albert/sprite_test_output/workup/annotations/DPM_first.RNA.merged.anno.tagged.bam, /central/scratchio/mblanco/albert/sprite_test_output/workup/alignments/DPM_first.RNAr.merged.tagged.bam
+    output: /central/scratchio/mblanco/albert/sprite_test_output/workup/clusters/DPM_first.bam
+    log: /central/scratchio/mblanco/albert/sprite_test_output/workup/clusters/DPM_first.make_clusters.log
+    jobid: 32
+    reason: Missing output files: /central/scratchio/mblanco/albert/sprite_test_output/workup/clusters/DPM_first.bam; Input files updated by another job: /central/scratchio/mblanco/albert/sprite_test_output/workup/annotations/DPM_first.RNA.merged.anno.tagged.bam, /central/scratchio/mblanco/albert/sprite_test_output/workup/alignments/DPM_first.DNA.merged.tagged.bam
+    wildcards: sample=DPM_first
+    resources: mem_mb=1000, mem_mib=954, disk_mb=1000, disk_mib=954, tmpdir=<TBD>
+
+Submitted job 32 with external jobid 'Submitted batch job 44572792'.
+[Fri Oct 18 16:21:58 2024]
+Finished job 32.
+4 of 7 steps (57%) done
+Select jobs to execute...
+
+[Fri Oct 18 16:21:58 2024]
+rule rename_clusters:
+    input: /central/scratchio/mblanco/albert/sprite_test_output/workup/clusters/DPM_first.bam
+    output: /central/scratchio/mblanco/albert/sprite_test_output/workup/clusters/DPM_first.renamed.bam
+    jobid: 34
+    reason: Missing output files: /central/scratchio/mblanco/albert/sprite_test_output/workup/clusters/DPM_first.renamed.bam; Input files updated by another job: /central/scratchio/mblanco/albert/sprite_test_output/workup/clusters/DPM_first.bam
+    wildcards: sample=DPM_first
+    resources: mem_mb=1000, mem_mib=954, disk_mb=1000, disk_mib=954, tmpdir=<TBD>
+
+Submitted job 34 with external jobid 'Submitted batch job 44572794'.
+
+[Fri Oct 18 16:21:58 2024]
+rule multiqc:
+    input: /central/scratchio/mblanco/albert/sprite_test_output/workup/clusters/DPM_first.bam
+    output: /central/scratchio/mblanco/albert/sprite_test_output/workup/qc/multiqc_report.html
+    log: /central/scratchio/mblanco/albert/sprite_test_output/workup/logs/multiqc.log
+    jobid: 33
+    reason: Missing output files: /central/scratchio/mblanco/albert/sprite_test_output/workup/qc/multiqc_report.html; Input files updated by another job: /central/scratchio/mblanco/albert/sprite_test_output/workup/clusters/DPM_first.bam
+    resources: mem_mb=1000, mem_mib=954, disk_mb=1000, disk_mib=954, tmpdir=<TBD>
+
+Submitted job 33 with external jobid 'Submitted batch job 44572795'.
+[Fri Oct 18 16:22:08 2024]
+Finished job 34.
+5 of 7 steps (71%) done
+[Fri Oct 18 16:22:28 2024]
+Finished job 33.
+6 of 7 steps (86%) done
+Select jobs to execute...
+
+[Fri Oct 18 16:22:28 2024]
+localrule all:
+    input: /central/scratchio/mblanco/albert/sprite_test/DPM_first_subset_R1.fastq.gz, /central/scratchio/mblanco/albert/sprite_test/DPM_first_subset_R2.fastq.gz, /central/scratchio/mblanco/albert/sprite_test_output/workup/trimmed/DPM_first_R1.part_000_val_1.fq.gz, /central/scratchio/mblanco/albert/sprite_test_output/workup/trimmed/DPM_first_R1.part_001_val_1.fq.gz, /central/scratchio/mblanco/albert/sprite_test_output/workup/trimmed/DPM_first_R2.part_000_val_2.fq.gz, /central/scratchio/mblanco/albert/sprite_test_output/workup/trimmed/DPM_first_R2.part_001_val_2.fq.gz, /central/scratchio/mblanco/albert/sprite_test_output/workup/trimmed/DPM_first_R1.part_000.fastq.gz_trimming_report.txt, /central/scratchio/mblanco/albert/sprite_test_output/workup/trimmed/DPM_first_R1.part_001.fastq.gz_trimming_report.txt, /central/scratchio/mblanco/albert/sprite_test_output/workup/trimmed/DPM_first_R2.part_000.fastq.gz_trimming_report.txt, /central/scratchio/mblanco/albert/sprite_test_output/workup/trimmed/DPM_first_R2.part_001.fastq.gz_trimming_report.txt, /central/scratchio/mblanco/albert/sprite_test_output/workup/trimmed/DPM_first_R1.part_000_val_1_RDtrim.fq.gz, /central/scratchio/mblanco/albert/sprite_test_output/workup/trimmed/DPM_first_R1.part_001_val_1_RDtrim.fq.gz, /central/scratchio/mblanco/albert/sprite_test_output/workup/trimmed/DPM_first_R2.part_000_val_2_RDtrim.fq.gz, /central/scratchio/mblanco/albert/sprite_test_output/workup/trimmed/DPM_first_R2.part_001_val_2_RDtrim.fq.gz, /central/scratchio/mblanco/albert/sprite_test_output/workup/fastqs/DPM_first_R1.part_000.barcoded.fastq.gz, /central/scratchio/mblanco/albert/sprite_test_output/workup/fastqs/DPM_first_R1.part_001.barcoded.fastq.gz, /central/scratchio/mblanco/albert/sprite_test_output/workup/fastqs/DPM_first_R2.part_000.barcoded.fastq.gz, /central/scratchio/mblanco/albert/sprite_test_output/workup/fastqs/DPM_first_R2.part_001.barcoded.fastq.gz, /central/scratchio/mblanco/albert/sprite_test_output/workup/ligation_efficiency.txt, /central/scratchio/mblanco/albert/sprite_test_output/workup/fastqs/DPM_first_R1.part_000.barcoded_rpm.fastq.gz, /central/scratchio/mblanco/albert/sprite_test_output/workup/fastqs/DPM_first_R1.part_001.barcoded_rpm.fastq.gz, /central/scratchio/mblanco/albert/sprite_test_output/workup/fastqs/DPM_first_R1.part_000.barcoded_dpm.fastq.gz, /central/scratchio/mblanco/albert/sprite_test_output/workup/fastqs/DPM_first_R1.part_001.barcoded_dpm.fastq.gz, /central/scratchio/mblanco/albert/sprite_test_output/workup/alignments_pieces/DPM_first.part_000.DNA.bowtie2.mapq20.bam, /central/scratchio/mblanco/albert/sprite_test_output/workup/alignments_pieces/DPM_first.part_001.DNA.bowtie2.mapq20.bam, /central/scratchio/mblanco/albert/sprite_test_output/workup/alignments_pieces/DPM_first.part_000.RNA.hisat2.mapq20.bam, /central/scratchio/mblanco/albert/sprite_test_output/workup/alignments_pieces/DPM_first.part_001.RNA.hisat2.mapq20.bam, /central/scratchio/mblanco/albert/sprite_test_output/workup/alignments_pieces/DPM_first.part_000.RNA.hisat2.unmapped.lowmq.fq.gz, /central/scratchio/mblanco/albert/sprite_test_output/workup/alignments_pieces/DPM_first.part_001.RNA.hisat2.unmapped.lowmq.fq.gz, /central/scratchio/mblanco/albert/sprite_test_output/workup/alignments_pieces/DPM_first.part_000.RNAr.bowtie2.tag.bam, /central/scratchio/mblanco/albert/sprite_test_output/workup/alignments_pieces/DPM_first.part_001.RNAr.bowtie2.tag.bam, /central/scratchio/mblanco/albert/sprite_test_output/workup/alignments_pieces/DPM_first.part_000.DNA.chr.bam, /central/scratchio/mblanco/albert/sprite_test_output/workup/alignments_pieces/DPM_first.part_001.DNA.chr.bam, /central/scratchio/mblanco/albert/sprite_test_output/workup/alignments_pieces/DPM_first.part_000.RNA.chr.bam, /central/scratchio/mblanco/albert/sprite_test_output/workup/alignments_pieces/DPM_first.part_001.RNA.chr.bam, /central/scratchio/mblanco/albert/sprite_test_output/workup/alignments_pieces/DPM_first.part_000.RNAr.chr.bam, /central/scratchio/mblanco/albert/sprite_test_output/workup/alignments_pieces/DPM_first.part_001.RNAr.chr.bam, /central/scratchio/mblanco/albert/sprite_test_output/workup/alignments_pieces/DPM_first.part_000.DNA.chr.masked.bam, /central/scratchio/mblanco/albert/sprite_test_output/workup/alignments_pieces/DPM_first.part_001.DNA.chr.masked.bam, /central/scratchio/mblanco/albert/sprite_test_output/workup/alignments/DPM_first.DNA.merged.tagged.bam, /central/scratchio/mblanco/albert/sprite_test_output/workup/annotations/DPM_first.RNA.merged.anno.tagged.bam, /central/scratchio/mblanco/albert/sprite_test_output/workup/alignments/DPM_first.RNAr.merged.tagged.bam, /central/scratchio/mblanco/albert/sprite_test_output/workup/annotations/DPM_first.RNAexin.hisat2.mapq20.bam.featureCounts.bam, /central/scratchio/mblanco/albert/sprite_test_output/workup/annotations/DPM_first.RNAr.hisat2.mapq20.bam.featureCounts.bam, /central/scratchio/mblanco/albert/sprite_test_output/workup/annotations/DPM_first.RNAanti.hisat2.mapq20.bam.featureCounts.bam, /central/scratchio/mblanco/albert/sprite_test_output/workup/annotations/DPM_first.RNA.merged.anno.bam, /central/scratchio/mblanco/albert/sprite_test_output/workup/clusters/DPM_first.bam, /central/scratchio/mblanco/albert/sprite_test_output/workup/qc/multiqc_report.html, /central/scratchio/mblanco/albert/sprite_test_output/workup/clusters/DPM_first.renamed.bam
+    jobid: 0
+    reason: Input files updated by another job: /central/scratchio/mblanco/albert/sprite_test_output/workup/alignments/DPM_first.DNA.merged.tagged.bam, /central/scratchio/mblanco/albert/sprite_test_output/workup/clusters/DPM_first.bam, /central/scratchio/mblanco/albert/sprite_test_output/workup/annotations/DPM_first.RNA.merged.anno.bam, /central/scratchio/mblanco/albert/sprite_test_output/workup/qc/multiqc_report.html, /central/scratchio/mblanco/albert/sprite_test_output/workup/annotations/DPM_first.RNA.merged.anno.tagged.bam, /central/scratchio/mblanco/albert/sprite_test_output/workup/clusters/DPM_first.renamed.bam
+    resources: mem_mb=1000, mem_mib=954, disk_mb=1000, disk_mib=954, tmpdir=/tmp
+
+[Fri Oct 18 16:22:28 2024]
+Finished job 0.
+7 of 7 steps (100%) done
+Complete log: .snakemake/log/2024-10-18T162041.076774.snakemake.log

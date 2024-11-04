@@ -1,0 +1,13 @@
+Config file config.yaml is extended by additional config specified via the command line.
+Building DAG of jobs...
+Your conda installation is not configured to use strict channel priorities. This is however crucial for having robust and correct environments (for details, see https://conda-forge.org/docs/user/tipsandtricks.html). Please consider to configure strict priorities by executing 'conda config --set channel_priority strict'.
+Creating conda environment envs/sprite.yaml...
+Downloading and installing remote packages.
+CreateCondaEnvironmentException:
+Could not create conda environment from /central/home/zyang4/RDSPRITE_v4/envs/sprite.yaml:
+Command:
+mamba env create --quiet --file "/central/home/zyang4/RDSPRITE_v4/.snakemake/conda/e8b55012c8213f62957991d671d08a03_.yaml" --prefix "/central/home/zyang4/RDSPRITE_v4/.snakemake/conda/e8b55012c8213f62957991d671d08a03_"
+Output:
+error    libmamba Non-conda folder exists at prefix
+critical libmamba Aborting.
+

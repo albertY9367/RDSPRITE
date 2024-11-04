@@ -1,0 +1,59 @@
+Config file config.yaml is extended by additional config specified via the command line.
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cluster nodes: 64
+Job stats:
+job                        count
+-----------------------  -------
+all                            1
+combine_annotations_rna        1
+make_merged_clusters           1
+multiqc                        1
+rename_clusters                1
+total                          5
+
+Select jobs to execute...
+
+[Fri Oct 18 16:03:34 2024]
+rule combine_annotations_rna:
+    input: /central/scratchio/mblanco/albert/sprite_test_sample/workup/alignments/DPM_first.RNA.merged.bam, /central/scratchio/mblanco/albert/sprite_test_sample/workup/annotations/DPM_first.RNAexin.hisat2.mapq20.bam.featureCounts.bam, /central/scratchio/mblanco/albert/sprite_test_sample/workup/annotations/DPM_first.RNAr.hisat2.mapq20.bam.featureCounts.bam, /central/scratchio/mblanco/albert/sprite_test_sample/workup/annotations/DPM_first.RNAanti.hisat2.mapq20.bam.featureCounts.bam
+    output: /central/scratchio/mblanco/albert/sprite_test_sample/workup/annotations/DPM_first.RNA.merged.anno.bam
+    log: /central/scratchio/mblanco/albert/sprite_test_sample/workup/logs/DPM_first.RNA_anno_combine.log
+    jobid: 31
+    reason: Missing output files: /central/scratchio/mblanco/albert/sprite_test_sample/workup/annotations/DPM_first.RNA.merged.anno.bam
+    wildcards: sample=DPM_first
+    resources: mem_mb=1000, mem_mib=954, disk_mb=1000, disk_mib=954, tmpdir=<TBD>
+
+Submitted job 31 with external jobid 'Submitted batch job 44572242'.
+[Fri Oct 18 16:04:13 2024]
+Finished job 31.
+1 of 5 steps (20%) done
+Select jobs to execute...
+
+[Fri Oct 18 16:04:13 2024]
+rule make_merged_clusters:
+    input: /central/scratchio/mblanco/albert/sprite_test_sample/workup/alignments/DPM_first.DNA.merged.bam, /central/scratchio/mblanco/albert/sprite_test_sample/workup/annotations/DPM_first.RNA.merged.anno.bam, /central/scratchio/mblanco/albert/sprite_test_sample/workup/alignments/DPM_first.RNAr.merged.dedup.bam
+    output: /central/scratchio/mblanco/albert/sprite_test_sample/workup/clusters/DPM_first.clusters
+    log: /central/scratchio/mblanco/albert/sprite_test_sample/workup/clusters/DPM_first.make_clusters.log
+    jobid: 32
+    reason: Missing output files: /central/scratchio/mblanco/albert/sprite_test_sample/workup/clusters/DPM_first.clusters; Input files updated by another job: /central/scratchio/mblanco/albert/sprite_test_sample/workup/annotations/DPM_first.RNA.merged.anno.bam
+    wildcards: sample=DPM_first
+    resources: mem_mb=1000, mem_mib=954, disk_mb=1000, disk_mib=954, tmpdir=<TBD>
+
+Submitted job 32 with external jobid 'Submitted batch job 44572253'.
+[Fri Oct 18 16:04:23 2024]
+Error in rule make_merged_clusters:
+    jobid: 32
+    input: /central/scratchio/mblanco/albert/sprite_test_sample/workup/alignments/DPM_first.DNA.merged.bam, /central/scratchio/mblanco/albert/sprite_test_sample/workup/annotations/DPM_first.RNA.merged.anno.bam, /central/scratchio/mblanco/albert/sprite_test_sample/workup/alignments/DPM_first.RNAr.merged.dedup.bam
+    output: /central/scratchio/mblanco/albert/sprite_test_sample/workup/clusters/DPM_first.clusters
+    log: /central/scratchio/mblanco/albert/sprite_test_sample/workup/clusters/DPM_first.make_clusters.log (check log file(s) for error details)
+    conda-env: chipdip
+    shell:
+        python scripts/python/get_clusters.py         -i /central/scratchio/mblanco/albert/sprite_test_sample/workup/alignments/DPM_first.DNA.merged.bam /central/scratchio/mblanco/albert/sprite_test_sample/workup/annotations/DPM_first.RNA.merged.anno.bam /central/scratchio/mblanco/albert/sprite_test_sample/workup/alignments/DPM_first.RNAr.merged.dedup.bam         -o /central/scratchio/mblanco/albert/sprite_test_sample/workup/clusters/DPM_first.clusters         -n 2  &> /central/scratchio/mblanco/albert/sprite_test_sample/workup/clusters/DPM_first.make_clusters.log
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+    cluster_jobid: Submitted batch job 44572253
+
+Error executing rule make_merged_clusters on cluster (jobid: 32, external: Submitted batch job 44572253, jobscript: /central/home/zyang4/RDSPRITE_v4/.snakemake/tmp.u8mm_4j9/snakejob.make_merged_clusters.32.sh). For error details see the cluster log and the log files of the involved rule(s).
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: .snakemake/log/2024-10-18T160321.596517.snakemake.log

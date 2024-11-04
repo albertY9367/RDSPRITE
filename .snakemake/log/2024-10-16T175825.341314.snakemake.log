@@ -1,0 +1,4 @@
+Config file config.yaml is extended by additional config specified via the command line.
+NameError in file /central/home/zyang4/RDSPRITE_v4/Snakefile_old.smk, line 174:
+name 'json' is not defined
+  File "/central/home/zyang4/RDSPRITE_v4/Snakefile_old.smk", line 174, in <module>
